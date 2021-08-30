@@ -1,245 +1,195 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Game Domain brings you the top games currenting being played, as well as new upcoming games">
-        <link rel="stylesheet" href="css/style.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Mukta:wght@300;400&display=swap" rel="stylesheet">
-        <script src="script.js" defer></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <title>Game Domain</title>
-    </head>
-    <body>
-        <header>
-            <h1 class="logo"> <a href ="/">Game Domain</a></h1>
-            <nav>
-                <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">PC</a></li>
-                        <li><a href="#">Xbox</a></li>
-                        <li><a href="#">PS</a></li>
-                </ul>
-            </nav> 
-        </header>
 
-        <main>
-            <section class="featured featured-container">
-                <h2 class="section-title top-left">Featured</h2>
-                <!-- main full width images-->
-                <div class="featured-main">
-                    <img src="img/Featured.jpg" alt="Featured Image" id="featured-img">
-                    <div class="text-block">
-                        <h4 id="featured_title">Mass-Effect Legendary Eddition</h4>
-                        <div id = "featured_description">Dive into the Mass-Effect universe with the new legendary edition</div>
-                    </div>
-                    <!-- Next and previous buttons -->
-                    <a id="prev">❮</a>
-                    <a id="next">❯</a>
+<body>
+    <!--It's in the header ejs-->
+
+    <main>
+        <section class="featured featured-container">
+            <h2 class="section-title top-left">Featured</h2>
+            <!-- main full width images-->
+            <div class="featured-main">
+                <img src="img/Featured.jpg" alt="Featured Image" id="featured-img">
+                <div class="text-block">
+                    <h4 id="featured_title">Mass-Effect Legendary Eddition</h4>
+                    <div id = "featured_description">Dive into the Mass-Effect universe with the new legendary edition</div>
                 </div>
+                <!-- Next and previous buttons -->
+                <a id="prev">❮</a>
+                <a id="next">❯</a>
+            </div>
 
-                 <!-- Thumbnail images -->
-                <div id="row">
-                </div>
-            </section>
-            
+                <!-- Thumbnail images -->
+            <div id="row">
+            </div>
+        </section>
+        
 
-            <section class="intro">
-                <h3 class="section-title"> Discover <span class="text-primary">current</span> and <span class="text-primary">upcoming</span> games right here at Game Domain</h2>
-            </section>
+        <section class="intro">
+            <h3 class="section-title"> Discover <span class="text-primary">current</span> and <span class="text-primary">upcoming</span> games right here at Game Domain</h2>
+        </section>
 
-            <section class="categories-showcase">
-                <header>
-                    <h2 class="section-title text-primary">Popular Categories</h2>
-                </header>
-                <!-- use display flex for the btn categories -->
-                <div class="categories flex">
-                    <div class="category">
-                        <a href="#First-Person-Shooter">
-                            <img src="img/first person shooter.jpg" alt="First Person Shooter">
-                            <h4 class="category-title">First Person Shooter</h4>
-                        </a>
-                    </div>
-                    <div class="category">
-                        <a href="#Role-Playing Games">
-                            <img src="img/RPG.jpg" alt="Role-Playing Game">
-                            <h4 class="category-title">Role-Playing Game</h4>
-                        </a>
-                    </div>
-                    <div class="category">
-                        <a href="#">
-                            <img src="img/action.jpg" alt="Action games">
-                            <h4 class="category-title">Action games</h4>
-                        </a>
-                    </div>
-                    <div class="category">
-                        <a href="#">
-                            <img src="img/Battle Royal.jpg" alt="Battle Royale">
-                            <h4 class="category-title">Battle Royale</h4>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- In the future use Javascript to generate more categories-->
-            <!-- Within each category, we will look into a database to see how many games are there, then dynamically generate the first top 10 games-->
-            <section class="category-1" id="First-Person-Shooter">
-                <header>
-                    <h2 class="section-title text-primary"> First Person Shooter</h2>
-                </header>
-                <div class="games flex">
-                    <div class="game">
-                        <h4 class="game-title">Valorant</h3>
-                        <img src="img/Valorant.png" alt="" class="game_img">
-                        <div class="game-description">
-                            <p >A 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities</p>
-                        </div>
-                    </div>
-
-                    <div class="game">
-                        <h4 class="game-title">Counter-Strike: Global Offensive</h3>
-                        <img src="img/Counter-Strike Global Offensive.jpg" alt="" class="game_img">
-                        <div class="game-description">
-                            <p >Counter-Strike: Global Offensive is a multiplayer first-person shooter developed by Valve and Hidden Path Entertainment</p>
-                        </div>
-                    </div>
-                    <div class="game">
-                        <h4 class="game-title">Doom Eternal</h3>
-                        <img src="img/Doom Eternal.jpg" alt="" class="game_img">
-                        <div class="game-description">
-                            <p>Doom Eternal is a first-person shooter game developed by id Software and published by Bethesda Softworks</p>
-                        </div>
-                    </div>
-                    <div class="game">
-                        <h4 class="game-title">Call of Duty: Warzone</h3>
-                        <img src="img/Call of Duty Warzone.jpg" alt="" class="game_img">
-                        <div class="game-description">
-                            <p>Experience classic Call of Duty® first-person combat in an all-new, massive arena for 150 players. Drop in, armor up, loot for rewards, and battle your way to the top</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="view-more">
-                    <a href="" class="btn btn-accent">View More</a>
-                </div>
-
-            </section>
-
-            <section class="category-1" id="Role-Playing Games">
-                <header>
-                    <h2 class="section-title text-primary"> Role-Playing Games</h2>
-                </header>
-                <div class="games flex">
-                    <div class="game">
-                        <h4 class="game-title">Game 1</h3>
-                        <img src="" alt="" class="game_img">
-                        <div class="game-description">
-                            <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, atque.</p>
-                        </div>
-                    </div>
-
-                    <div class="game">
-                        <h4 class="game-title">Game 2</h3>
-                        <img src="" alt="" class="game_img">
-                        <div class="game-description">
-                            <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, adipisci?</p>
-                        </div>
-                    </div>
-                    <div class="game">
-                        <h4 class="game-title">Game 3</h3>
-                        <img src="" alt="" class="game_img">
-                        <div class="game-description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, numquam.</p>
-                        </div>
-                    </div>
-                    <div class="game">
-                        <h4 class="game-title">Game 4</h3>
-                        <img src="" alt="" class="game_img">
-                        <div class="game-description">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit, quae.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="view-more">
-                    <a href="" class="btn btn-accent">View More</a>
-                </div>
-
-            </section>
-
-            <section class="category-1" id="action">
-                <header>
-                    <h2 class="section-title text-primary"> Action</h2>
-                </header>
-                <div class="games flex">
-                    <div class="game">
-                        <h4 class="game-title">Game 1</h3>
-                        <img src="" alt="" class="game_img">
-                        <div class="game-description">
-                            <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, atque.</p>
-                        </div>
-                    </div>
-
-                    <div class="game">
-                        <h4 class="game-title">Game 2</h3>
-                        <img src="" alt="" class="game_img">
-                        <div class="game-description">
-                            <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, adipisci?</p>
-                        </div>
-                    </div>
-                    <div class="game">
-                        <h4 class="game-title">Game 3</h3>
-                        <img src="" alt="" class="game_img">
-                        <div class="game-description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, numquam.</p>
-                        </div>
-                    </div>
-                    <div class="game">
-                        <h4 class="game-title">Game 4</h3>
-                        <img src="" alt="" class="game_img">
-                        <div class="game-description">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit, quae.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="view-more">
-                    <a href="" class="btn btn-accent">View More</a>
-                </div>
-
-            </section>
-            
-        </main>
-
-        <footer>
-            <ul class="footer-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">PC</a></li>
-                <li><a href="#">Xbox</a></li>
-                <li><a href="#">PS</a></li>
-            </ul>
-
-            <ul class="footer-social">
-                <li>
-                    <a class="social-link" href="">
-                        <img class="social-icon" src="img/Facebook-logo.png" alt="fbLogo">
+        <section class="categories-showcase">
+            <header>
+                <h2 class="section-title text-primary">Popular Categories</h2>
+            </header>
+            <!-- use display flex for the btn categories -->
+            <div class="categories flex">
+                <div class="category">
+                    <a href="#First-Person-Shooter">
+                        <img src="img/first person shooter.jpg" alt="First Person Shooter">
+                        <h4 class="category-title">First Person Shooter</h4>
                     </a>
-                </li>
-                <li>
-                    <a class="social-link" href="">
-                        <img class="social-icon" src="img/YT-logo.png" alt="YTlogo">
+                </div>
+                <div class="category">
+                    <a href="#Role-Playing Games">
+                        <img src="img/RPG.jpg" alt="Role-Playing Game">
+                        <h4 class="category-title">Role-Playing Game</h4>
                     </a>
-                </li>
-                <li>
-                    <a class="social-link" href="">
-                        <img class="social-icon" src="img/Twitter-logo.png" alt="Twitterlogo">
+                </div>
+                <div class="category">
+                    <a href="#">
+                        <img src="img/action.jpg" alt="Action games">
+                        <h4 class="category-title">Action games</h4>
                     </a>
-                </li>
-            </ul>
-        </footer>
+                </div>
+                <div class="category">
+                    <a href="#">
+                        <img src="img/Battle Royal.jpg" alt="Battle Royale">
+                        <h4 class="category-title">Battle Royale</h4>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    </body>
-</html>
+        <!-- In the future use Javascript to generate more categories-->
+        <!-- Within each category, we will look into a database to see how many games are there, then dynamically generate the first top 10 games-->
+        <section class="category-1" id="First-Person-Shooter">
+            <header>
+                <h2 class="section-title text-primary"> First Person Shooter</h2>
+            </header>
+            <div class="games flex">
+                <div class="game">
+                    <h4 class="game-title">Valorant</h3>
+                    <img src="img/Valorant.png" alt="" class="game_img">
+                    <div class="game-description">
+                        <p >A 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities</p>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <h4 class="game-title">Counter-Strike: Global Offensive</h3>
+                    <img src="img/Counter-Strike Global Offensive.jpg" alt="" class="game_img">
+                    <div class="game-description">
+                        <p >Counter-Strike: Global Offensive is a multiplayer first-person shooter developed by Valve and Hidden Path Entertainment</p>
+                    </div>
+                </div>
+                <div class="game">
+                    <h4 class="game-title">Doom Eternal</h3>
+                    <img src="img/Doom Eternal.jpg" alt="" class="game_img">
+                    <div class="game-description">
+                        <p>Doom Eternal is a first-person shooter game developed by id Software and published by Bethesda Softworks</p>
+                    </div>
+                </div>
+                <div class="game">
+                    <h4 class="game-title">Call of Duty: Warzone</h3>
+                    <img src="img/Call of Duty Warzone.jpg" alt="" class="game_img">
+                    <div class="game-description">
+                        <p>Experience classic Call of Duty® first-person combat in an all-new, massive arena for 150 players. Drop in, armor up, loot for rewards, and battle your way to the top</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-more">
+                <a href="" class="btn btn-accent">View More</a>
+            </div>
+
+        </section>
+
+        <section class="category-1" id="Role-Playing Games">
+            <header>
+                <h2 class="section-title text-primary"> Role-Playing Games</h2>
+            </header>
+            <div class="games flex">
+                <div class="game">
+                    <h4 class="game-title">Game 1</h3>
+                    <img src="" alt="" class="game_img">
+                    <div class="game-description">
+                        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, atque.</p>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <h4 class="game-title">Game 2</h3>
+                    <img src="" alt="" class="game_img">
+                    <div class="game-description">
+                        <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, adipisci?</p>
+                    </div>
+                </div>
+                <div class="game">
+                    <h4 class="game-title">Game 3</h3>
+                    <img src="" alt="" class="game_img">
+                    <div class="game-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, numquam.</p>
+                    </div>
+                </div>
+                <div class="game">
+                    <h4 class="game-title">Game 4</h3>
+                    <img src="" alt="" class="game_img">
+                    <div class="game-description">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit, quae.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-more">
+                <a href="" class="btn btn-accent">View More</a>
+            </div>
+
+        </section>
+
+        <section class="category-1" id="action">
+            <header>
+                <h2 class="section-title text-primary"> Action</h2>
+            </header>
+            <div class="games flex">
+                <div class="game">
+                    <h4 class="game-title">Game 1</h3>
+                    <img src="" alt="" class="game_img">
+                    <div class="game-description">
+                        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, atque.</p>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <h4 class="game-title">Game 2</h3>
+                    <img src="" alt="" class="game_img">
+                    <div class="game-description">
+                        <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, adipisci?</p>
+                    </div>
+                </div>
+                <div class="game">
+                    <h4 class="game-title">Game 3</h3>
+                    <img src="" alt="" class="game_img">
+                    <div class="game-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, numquam.</p>
+                    </div>
+                </div>
+                <div class="game">
+                    <h4 class="game-title">Game 4</h3>
+                    <img src="" alt="" class="game_img">
+                    <div class="game-description">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit, quae.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-more">
+                <a href="" class="btn btn-accent">View More</a>
+            </div>
+
+        </section>
+        
+    </main>
+
+    <!--It's in the footer ejs-->
+
+</body>
