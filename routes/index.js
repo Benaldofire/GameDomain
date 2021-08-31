@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Game = require("../models/game_model");
 const fetch = require('node-fetch');
-require('dotenv').config();
-
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+}
 //checks to see if it's the first time the server is being started
 let fetchData = true;
 //Home(index) page route
