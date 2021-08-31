@@ -17,7 +17,7 @@ router.get('/', async (req,res)=>{
         4. then display the data by dynamically creating new containers for featured and other genres
         5. let the css handle the layout
     */
-   //1.First use the fetch API and get the data from RAWG 
+   //1.First use the fetch API and get the data from RAWG
     const API_KEY = process.env.API_KEY;
     
     if(fetchData){
