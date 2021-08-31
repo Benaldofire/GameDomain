@@ -294,9 +294,10 @@ nav a:focus{
 }
 
 /* ensuring image takes full width of container and is visible*/
-.games img{
-    width: 100%;
-    height: auto;
+.game_img{
+    width: 360px;
+    height: 480px;
+    object-fit: cover;
     opacity: 1;
     transition: 0.5s;
 }
@@ -386,6 +387,14 @@ footer a{
     max-width: 50px;
 }
 
+/*------------- PC GAMES */
+.games_img_smaller{
+    width: 360px;
+    height: 202.5px;
+    object-fit: cover;
+    opacity: 1;
+    transition: 0.5s;
+}
 
 
 
