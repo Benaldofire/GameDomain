@@ -1,3 +1,9 @@
+<!--XBOX-->
+<form action="/xbox/filter" method="POST">
+    <%- include("../partials/banner.ejs")%>
+    <input type="submit" value="Filter">
+</form>
+
 <div class="games flex">
     <!--for each game, generate a div container for it-->
     <% for(game of xboxGames){%> 

@@ -6,12 +6,6 @@ const Game = require("../models/game_model");
 let fetchData = true;
 //All xbox Route
 router.get('/', async (req,res)=>{
-    /*
-    //PS5 id =  187, ps4 id = 18
-        1.get ps games data from database and send it to the xbox/index view
-        2. then display the data by dynamically creating new containers,
-        3. let the css handle the layout
-    */
 
     try{
         //get the first 25 playstation games from the database
@@ -27,6 +21,41 @@ router.get('/', async (req,res)=>{
     
 });
 
+router.post('/filter', async (req,res)=>{
+    /*
+        based off the request sent, data needed in the database and render the xbox/index with the new results
+        Genres: includes those genres
+        sort: If asc then sort by name
+        recent/rating: sort by release date or rating
+    */
+        try{
+            //get the first 25 xbox games from the database        
+            let sort = req.body.sort; 
+            let genres = [];
+    
+            //if statement to see which values/genres are ticked and add it to the array
+            if(req.body.action){
+                genres.push("Action");
+            }
+            if(req.body.rpg){
+                genres.push("RPG");
+            }
+            if(req.body.battleroyale){
+                genres.push("battleroyale");
+            }
+            if(req.body.shooter){
+                genres.push("Shooter");
+            }
+    
+            const xboxGames = await Game.find({}).where("genres").in(genres).sort({ "name": sort }).limit(25);;
+            console.log(xboxGames);
+            //send the data from the database to the xbox/index
+            res.render("xbox/index", {xboxGames: xboxGames});
+        }
+        catch (err){
+            console.log(err);
+        }
+});
 //export the router we created
 
 module.exports = router;

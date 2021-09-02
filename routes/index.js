@@ -5,6 +5,9 @@ const fetch = require('node-fetch');
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config();
 }
+
+//when popular games are requested send the data back to the client in json format
+
 //checks to see if it's the first time the server is being started
 let fetchData = true;
 //Home(index) page route
@@ -42,6 +45,7 @@ router.get('/', async (req,res)=>{
             let game = new Game({
                 name: item.name,
                 genres: genres, 
+                rating: item.metacritic,
                 background_img: item.background_image, 
                 description: "N/A",
                 platform: platforms,
@@ -84,6 +88,17 @@ router.get('/', async (req,res)=>{
         });
     }
     catch (err){
+        console.log(err);
+    }
+});
+
+router.get('/popular', async function(res,req){
+    try{
+        const popularGames = await Game.find({}).sort({ "rating": "asc" }).limit(4);
+        console.log(popularGames);
+        //res.json(popularGames);
+    }
+    catch(err){
         console.log(err);
     }
 });

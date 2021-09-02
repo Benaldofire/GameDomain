@@ -18,7 +18,9 @@ app.set("view engine", "ejs");
 app.set('layout',"layouts/layout");
 
 app.use(expressLayouts);
-app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
+app.use(express.json({limit: '1mb'}));// Used to parse JSON bodies
+app.use(express.urlencoded({extended:true}));
 
 //---------importing routes-----------
 const indexRouter = require('./routes/index');
@@ -35,9 +37,14 @@ db.once('open', ()=>console.log('connected to Mongoose'))
 
 //---------using routes----------
 app.use('/', indexRouter);
+app.use('/popular', indexRouter);
 app.use('/pc', pcRouter); //route will be "pc/.."
+app.use('/pc/filter', pcRouter);
 app.use('/ps', psRouter);
+app.use('/ps/filter', psRouter);
 app.use('/xbox', xboxRouter);
+app.use('/xbox/filter', xboxRouter);
+
 
 //process.env.PORT will be for when we deploy it. Server will tell us what server it's listening to. 
 const port = process.env.PORT || 3000;

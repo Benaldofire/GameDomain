@@ -9,20 +9,17 @@ for(let i =0; i < gameTitle.length; i++){
     }
 }
 
-getFeatured();
-let games = new Array();
-async function getFeatured(){
-    /*  
-        Server Side code
-        if we have in our database then, and its less than a week old then pull data from our database
-        Else; use a GET request to get new data and add it to the database.
-    */
-   
-}
 
 
+
+//getFeatured();
 //Slide show
-function featuredImg(){
+async function featuredImg(){
+    //get the data from the server
+    let response = await fetch('/popular');
+    let games = await response.json();
+    
+    console.log(games);
     //change the image in the featured container.
     let currentSlide = 0;
     let img = document.querySelector("#featured-img");
