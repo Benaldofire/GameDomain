@@ -52,7 +52,7 @@ router.post('/filter', async (req,res)=>{
             genres = ["Action","RPG","battleroyale","Shooter"];
         }
         
-        const pcGames = await Game.find({}).where("genres").in(genres).sort(sortOption).limit(25);
+        const pcGames = await Game.find({}).where("genres").in(genres).sort(sortOption).limit(24);
         //console.log(pcGames);
         //send the data from the database to the pc/index
         res.render("pc/index", {pcGames: pcGames});

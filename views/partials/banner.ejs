@@ -1,33 +1,43 @@
-<label> Sort </label>
-<select name = "sort" class="selection">
-    <option label=" A - Z" value="asc"></option>
-    <option label ="Z - A" value= "desc"></option>
-</select>
-
-<select name = "sortby" class = "selection">
-    <option label="Name" value="name"></option>
-    <option label="Release Date" value="release_Date"></option>
-    <option label ="Rating" value= "rating"></option>
-</select>
-
 <fieldset>
-    <legend>Genres</legend>
+    <legend>Sort By</legend>
     <!--The value attribute specifies the value to be sent to a server when a form is submitted
         If the value attribute is not specified, the content will be passed as a value instead.
     -->
+    <div>
+        <span> Genres</span>
+        <input type="checkbox" name="action">
+        <label for="action">Action</label>
+        
+        <input type="checkbox" name="rpg">
+        <label for="rpg">RPG</label>
+        
+        <input type="checkbox" name="shooter">
+        <label for="shooter">Shooter</label>
+        
+        <input type="checkbox" name="battleroyale">
+        <label for="battleroyale">Battle Royale</label>
+    </div>
     
-    <input type="checkbox" name="action">
-    <label for="action">Action</label>
+
+    <div>
+        <label> Sort </label>
+        <select name = "sort" class="selection">
+            <option label=" A - Z" value="asc"></option>
+            <option label ="Z - A" value= "desc"></option>
+        </select>
     
-    <input type="checkbox" name="rpg">
-    <label for="rpg">RPG</label>
+        <select name = "sortby" class = "selection">
+            <option label="Name" value="name"></option>
+            <option label="Release Date" value="release_Date"></option>
+            <option label ="Rating" value= "rating"></option>
+        </select>
+    </div>
     
-    <input type="checkbox" name="shooter">
-    <label for="shooter">Shooter</label>
-    
-    <input type="checkbox" name="battleroyale">
-    <label for="battleroyale">Battle Royale</label>
 </fieldset>
+
+
+
+
 
 
 <!-- want to send a post request once we click search-->

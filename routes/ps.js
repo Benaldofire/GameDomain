@@ -51,7 +51,7 @@ router.post('/filter', async (req,res)=>{
             genres = ["Action","RPG","battleroyale","Shooter"];
         }
 
-        const psGames = await Game.find({}).where("genres").in(genres).sort(sortOption).limit(25);
+        const psGames = await Game.find({}).where("genres").in(genres).sort(sortOption).limit(24);
         console.log(psGames);
         //send the data from the database to the ps/index
         res.render("ps/index", {psGames: psGames});

@@ -27,6 +27,7 @@ const indexRouter = require('./routes/index');
 const pcRouter = require('./routes/pc');
 const psRouter = require('./routes/ps');
 const xboxRouter = require('./routes/xbox');
+const searchRouter = require('./routes/search');
 
 //---------implement mongoose--------
 const mongoose = require('mongoose');
@@ -45,8 +46,7 @@ app.use('/ps', psRouter);
 app.use('/ps/filter', psRouter);
 app.use('/xbox', xboxRouter);
 app.use('/xbox/filter', xboxRouter);
-
-
+app.use('/search', searchRouter);
 //process.env.PORT will be for when we deploy it. Server will tell us what server it's listening to. 
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> console.log(`Listening on port: ${port}` ));

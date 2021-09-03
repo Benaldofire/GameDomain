@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Game = require("../models/game_model");
 
-//checks to see if it's the first time the server is being started
-let fetchData = true;
 //All xbox Route
 router.get('/', async (req,res)=>{
 
@@ -54,7 +52,7 @@ router.post('/filter', async (req,res)=>{
             genres = ["Action","RPG","battleroyale","Shooter"];
         }
 
-        const xboxGames = await Game.find({}).where("genres").in(genres).sort(sortOption).limit(25);
+        const xboxGames = await Game.find({}).where("genres").in(genres).sort(sortOption).limit(24);
         console.log(xboxGames);
         //send the data from the database to the xbox/index
         res.render("xbox/index", {xboxGames: xboxGames});

@@ -30,6 +30,7 @@ body{
     text-align: center;
 }
 
+
 img{
     /*always do this for images, to get it to fit the page and also to remnove the extra spage underneath images*/
     display:block;
@@ -88,13 +89,17 @@ p{
 
 .logo a{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 /*navigation*/
 
 header{
     padding: 1em 0 2em;
+}
+
+.main-header{
+    background-color: #171717;
 }
 
 
@@ -111,12 +116,15 @@ nav a {
     padding: 0.5em;
     color: var(--clr-primary);
     text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 0.5em;
 }
 
 nav a:hover,
 nav a:focus{
-    color: var(--clr-accent);
-    text-decoration: underline;
+    color: white;
+    background-color: var(--clr-primary);
 }
 
 
@@ -149,6 +157,8 @@ nav a:focus{
 
 .featured .section-title{
     text-align: center;
+    padding: 0.5em;
+    margin: 0;
 }
 
 
@@ -222,6 +232,7 @@ nav a:focus{
 /*Categories section*/
 .categories-showcase{
     padding: 1em;
+
 }
 
 .categories{
@@ -258,7 +269,9 @@ nav a:focus{
     padding: 1em;
 }
 
+.category-1{
 
+}
 
 
 .games{
@@ -387,15 +400,36 @@ footer a{
     max-width: 50px;
 }
 
-/*------------- PC GAMES */
+/*------partials-----*/
+.form-banner{
+
+}
+
+fieldset{
+   background-color: #eeeeee; 
+   width: 50%;
+   margin: 0 auto;
+}
+
+legend{
+    background-color: grey;
+    color: white;
+    padding: 5px 10px;
+}
+
+
+/*------ PC GAMES ------*/
 .games_img_smaller{
     width: 360px;
-    height: 202.5px;
+    height: 480px;
     object-fit: cover;
     opacity: 1;
     transition: 0.5s;
 }
 
+.backgroundClr{
+
+}
 
 
 @media screen and (min-width: 750px){

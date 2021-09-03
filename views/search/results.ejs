@@ -1,11 +1,6 @@
-<!--Playstation-->
-<form action="/ps/filter" method="POST">
-    <%- include("../partials/banner.ejs")%>
-    <input type="submit" value="Filter">
-</form>
 <div class="games flex">
     <!--for each game, generate a div container for it-->
-    <% for(game of psGames){%> 
+    <% for(game of games){%> 
         <div class="game">
             <h4 class="game-title"><%=game.name%></h3>
             <img src=<%=game.background_img%> alt=<%=game.name%> class="games_img_smaller">
@@ -15,4 +10,3 @@
         </div>
     <%}%>
 </div>
-

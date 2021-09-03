@@ -1,4 +1,4 @@
-<header>
+<header class="main-header">
     <h1 class="logo"> <a href ="/">Game Domain</a></h1>
     <nav>
         <ul>
@@ -7,5 +7,9 @@
                 <li><a href="/xbox">Xbox</a></li>
                 <li><a href="/ps">PS</a></li>
         </ul>
+        <!-- Security: Learn how to prevent sql injection-->
+        <%- include('../partials/searchBanner.ejs')%>
+
+        </form>
     </nav> 
 </header>
