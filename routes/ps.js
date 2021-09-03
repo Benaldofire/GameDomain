@@ -27,9 +27,12 @@ router.post('/filter', async (req,res)=>{
    
     try{
         //get the first 25 ps games from the database        
-        let sort = req.body.sort; 
+        const sortField = req.body.sortby; 
+        let sort = req.body.sort;
+        let sortOption = {};
+        sortOption[sortField] = sort;
+        console.log(sortOption)
         let genres = [];
-
         //if statement to see which values/genres are ticked and add it to the array
         if(req.body.action){
             genres.push("Action");
@@ -44,7 +47,11 @@ router.post('/filter', async (req,res)=>{
             genres.push("Shooter");
         }
 
-        const psGames = await Game.find({}).where("genres").in(genres).sort({ "name": sort }).limit(25);;
+        if(genres.length == 0){
+            genres = ["Action","RPG","battleroyale","Shooter"];
+        }
+
+        const psGames = await Game.find({}).where("genres").in(genres).sort(sortOption).limit(25);
         console.log(psGames);
         //send the data from the database to the ps/index
         res.render("ps/index", {psGames: psGames});

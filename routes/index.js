@@ -95,14 +95,25 @@ router.get('/', async (req,res)=>{
 router.get('/popular', async function(res,req){
     try{
         const popularGames = await Game.find({}).sort({ "rating": "asc" }).limit(4);
-        console.log(popularGames);
-        //res.json(popularGames);
+        //console.log(popularGames);
+        res.json(popularGames);
     }
     catch(err){
         console.log(err);
     }
 });
 
+router.get('/deleteAll', async function(res,req){
+    try{
+        //deletes everything in db
+        const popularGames = await Game.remove({});
+        console.log("deleted");
+        console.log(popularGames);
+    }
+    catch(err){
+        console.log(err);
+    }
+});
 //export the router we created
 
 module.exports = router;

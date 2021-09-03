@@ -38,6 +38,7 @@ db.once('open', ()=>console.log('connected to Mongoose'))
 //---------using routes----------
 app.use('/', indexRouter);
 app.use('/popular', indexRouter);
+app.use('/deleteAll', indexRouter);
 app.use('/pc', pcRouter); //route will be "pc/.."
 app.use('/pc/filter', pcRouter);
 app.use('/ps', psRouter);

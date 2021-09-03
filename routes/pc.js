@@ -28,9 +28,11 @@ router.post('/filter', async (req,res)=>{
         //get the first 25 pc games from the database        
         //{releasedate: "asc"}
         //{rating: "asc"}
-        let sortby = req.body.sortby; 
+        const sortField = req.body.sortby; 
         let sort = req.body.sort;
-
+        let sortOption = {};
+        sortOption[sortField] = sort;
+        console.log(sortOption)
         let genres = [];
         //if statement to see which values/genres are ticked and add it to the array
         if(req.body.action){
@@ -46,7 +48,11 @@ router.post('/filter', async (req,res)=>{
             genres.push("Shooter");
         }
 
-        const pcGames = await Game.find({}).where("genres").in(genres).sort({ sortby: sort }).limit(25);;
+        if(genres.length == 0){
+            genres = ["Action","RPG","battleroyale","Shooter"];
+        }
+        
+        const pcGames = await Game.find({}).where("genres").in(genres).sort(sortOption).limit(25);
         //console.log(pcGames);
         //send the data from the database to the pc/index
         res.render("pc/index", {pcGames: pcGames});
