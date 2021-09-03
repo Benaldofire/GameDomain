@@ -108,6 +108,7 @@ nav{
     display: flex;
     justify-content: space-between;
 }
+/* Change the flex direction to column and then remove the float from the searchinput */
 
 nav ul{
     display: flex;
@@ -121,7 +122,6 @@ nav ul{
 nav li{
     width: 30%;
 }
-
 
 nav a {
     display: inline-block;
@@ -145,9 +145,18 @@ nav a:focus{
 
 #searchInput{
     font-size: 1rem;
-    padding: 12px 20px;
+    padding: 12px 20px 12px 40px;
     border: none;
     border-radius: 50px 0 0 50px;
+    background-color: white;
+    background-image: url('/img/static-searchicon.jpg');
+    background-size: 30px;
+    background-position: 5px; 
+    background-repeat: no-repeat;
+}
+
+#searchInput:focus{
+    background-image: url('/img/searchicon.png.gif');
 }
 
 .search-btn{
@@ -156,7 +165,9 @@ nav a:focus{
     border: none;
     font-size: 1rem;
     padding: 12px 20px;
+    border-radius: 0 50px 50px 0;
 }
+
 
 .search-btn:hover,
 .search-btn:focus{

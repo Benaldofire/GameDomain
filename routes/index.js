@@ -10,8 +10,18 @@ if(process.env.NODE_ENV !== 'production'){
 
 //checks to see if it's the first time the server is being started
 let fetchData = true;
+
 //Home(index) page route
 router.get('/', async (req,res)=>{
+    let gamesIDb = Game.find({}).count;
+    console.log(gamesIDb);
+    if(gamesIDb > 0){
+        fetchData = false;
+        console.log("no need to fetch games");
+    }
+    else{
+        console.log("need to fetch");
+    }
     /*
     //PC id = 4, PS5 id =  187, ps4 id = 18, Xbox Series S/X id = 186, Xbox One id = 1
         1.First use the fetch API and get all games data from RAWG 
@@ -96,7 +106,7 @@ router.get('/popular', async function(res,req){
     try{
         const popularGames = await Game.find({}).sort({ "rating": "asc" }).limit(4);
         //console.log(popularGames);
-        res.json(popularGames);
+        //res.json(popularGames);
     }
     catch(err){
         console.log(err);
