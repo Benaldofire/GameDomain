@@ -13,9 +13,8 @@ let fetchData = true;
 
 //Home(index) page route
 router.get('/', async (req,res)=>{
-    let gamesIDb = Game.find({}).count;
-    console.log(gamesIDb);
-    if(gamesIDb > 0){
+    let gamesIDb = await Game.find({});
+    if(gamesIDb.length > 0){
         fetchData = false;
         console.log("no need to fetch games");
     }
@@ -34,7 +33,7 @@ router.get('/', async (req,res)=>{
     const API_KEY = process.env.API_KEY;
     
     if(fetchData){
-        const url = "https://api.rawg.io/api/games?key="+API_KEY+"&dates=2021-01-01,2021-12-31&platforms=186,187,18,1,7&ordering=-added";
+        const url = "https://api.rawg.io/api/games?key="+API_KEY+"&dates=2020-01-01,2021-12-31&platforms=186,187,18,1,7&ordering=-added&page_size=50";
         const rawgResponse = await fetch(url);
         const data = await rawgResponse.json();
 
@@ -53,6 +52,7 @@ router.get('/', async (req,res)=>{
             }
 
             let game = new Game({
+                id: item.id,
                 name: item.name,
                 genres: genres, 
                 rating: item.metacritic,
@@ -116,7 +116,7 @@ router.get('/popular', async function(res,req){
 router.get('/deleteAll', async function(res,req){
     try{
         //deletes everything in db
-        const popularGames = await Game.remove({});
+        const popularGames = await Game.deleteMany({});
         console.log("deleted");
         console.log(popularGames);
     }
