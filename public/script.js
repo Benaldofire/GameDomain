@@ -16,9 +16,8 @@ for(let i =0; i < gameTitle.length; i++){
 //Slide show
 async function featuredImg(){
     //get the data from the server
-    //let response = await fetch('/popular');
-    //let games = await response.json();
-    let games = popularGames;
+    let response = await fetch('/popular');
+    let games = await response.json();
     console.log(games);
     //change the image in the featured container.
     let currentSlide = 0;

@@ -8,8 +8,14 @@
                 <li><a href="/ps">PS</a></li>
         </ul>
         <!-- Security: Learn how to prevent sql injection-->
-        <%- include('../partials/searchBanner.ejs')%>
-
-        </form>
+        <!--Searched Game(s)
+            This is too early, need to have detailed info on each game first.
+        -->
+        <div class="search-container">
+            <form action="/search" method="GET" >
+                <input type="text" name="name" placeholder="Search for games.." id="searchInput" autocomplete="off">
+                <button type="submit" class="search-btn"> Search</button>
+            </form>
+        </div>
     </nav> 
 </header>

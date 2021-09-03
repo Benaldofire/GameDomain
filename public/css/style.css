@@ -100,16 +100,28 @@ header{
 
 .main-header{
     background-color: #171717;
+    padding-bottom: 0;
+    padding-top: 3rem;
 }
 
+nav{
+    display: flex;
+    justify-content: space-between;
+}
 
 nav ul{
     display: flex;
+    width: 70%;
     list-style: none;
     margin: 0;
     padding: 0;
     justify-content: space-around;
 }
+
+nav li{
+    width: 30%;
+}
+
 
 nav a {
     display: inline-block;
@@ -118,11 +130,36 @@ nav a {
     text-decoration: none;
     font-size: 1.25rem;
     font-weight: 500;
-    border-radius: 0.5em;
+    width: 100%;
 }
 
 nav a:hover,
 nav a:focus{
+    color: white;
+    background-color: var(--clr-primary);
+}
+
+.search-container{
+    margin: 0 2em;
+}
+
+#searchInput{
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+}
+
+.search-btn{
+    cursor: pointer;
+    float: right;
+    border: none;
+    font-size: 1rem;
+    padding: 12px 20px;
+}
+
+.search-btn:hover,
+.search-btn:focus{
     color: white;
     background-color: var(--clr-primary);
 }
@@ -401,9 +438,9 @@ footer a{
 }
 
 /*------partials-----*/
-.form-banner{
 
-}
+
+
 
 fieldset{
    background-color: #eeeeee; 
