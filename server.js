@@ -24,10 +24,8 @@ app.use(express.urlencoded({extended:true}));
 
 //---------importing routes-----------
 const indexRouter = require('./routes/index');
-const pcRouter = require('./routes/pc');
-const psRouter = require('./routes/ps');
-const xboxRouter = require('./routes/xbox');
 const searchRouter = require('./routes/search');
+const platformsRouter = require('./routes/platforms')
 
 //---------implement mongoose--------
 const mongoose = require('mongoose');
@@ -40,13 +38,9 @@ db.once('open', ()=>console.log('connected to Mongoose'))
 app.use('/', indexRouter);
 app.use('/popular', indexRouter);
 app.use('/deleteAll', indexRouter);
-app.use('/pc', pcRouter); //route will be "pc/.."
-app.use('/pc/filter', pcRouter);
-app.use('/ps', psRouter);
-app.use('/ps/filter', psRouter);
-app.use('/xbox', xboxRouter);
-app.use('/xbox/filter', xboxRouter);
 app.use('/search', searchRouter);
+app.use('/platform', platformsRouter);
+app.use('/platform/filter', platformsRouter);
 //process.env.PORT will be for when we deploy it. Server will tell us what server it's listening to. 
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> console.log(`Listening on port: ${port}` ));
