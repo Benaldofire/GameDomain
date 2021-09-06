@@ -83,7 +83,7 @@ router.get('/', async (req,res)=>{
     try{
         //get the first 5 games from the database for each category
         //put in the right query
-        const popularGames = await Game.find({}).limit(4);
+        const popularGames = await Game.find({}).limit(5);
         const actionGames = await Game.find({}).where("genres").in(["Action"]).limit(4);
         const fpsGames = await Game.find({}).where("genres").in(["Shooter"]).limit(4);
         const rpgGames = await Game.find({}).where("genres").in(["RPG"]).limit(4);

@@ -5,39 +5,44 @@
         <section class="featured featured-container">
             <h2 class="section-title top-left">Featured</h2>
             <!-- main full width images-->
-            <div class="featured-main">
-                <img src=<%=popularGames[0].background_img%> alt=<%=popularGames[0].name%> id="featured-img">
-                <div class="text-block">
-                    <h4 id="featured_title"><%=popularGames[0].name%></h4>
-                    <div id = "featured_description"><%=popularGames[0].description%></div>
-                    <div id="featured_genres">
-                        <span><strong>Genres:</strong></span>
-                        <%for(genre of popularGames[0].genres){%>
-                            <li style="display: inline-block;"><%=genre%></li>
-                        <%}%>
+            <div class="featured-resize">
+                <div class="featured-main">
+                    <img src=<%=popularGames[0].background_img%> alt=<%=popularGames[0].name%> id="featured-img">
+                    <hr class="featured-divider"> <!--put in  the css-->
+                    <div class="text-block">
+                        <h4 id="featured_title"><%=popularGames[0].name%></h4>
+                        <div id = "featured_description"><%=popularGames[0].description%></div>
+                        <div id="featured_genres">
+                            <span><strong>Genres:</strong></span>
+                            <%for(genre of popularGames[0].genres){%>
+                                <li style="display: inline-block;"><%=genre%></li>
+                            <%}%>
+                        </div>
+                        
+                        <div id="featured_platforms">
+                            <span><strong>Platform(s):</strong></span>
+                            <%for(platforms of popularGames[0].platform){%>
+                                <li style="display: inline-block;"><%=platforms%></li>,
+                            <%}%>
+                        </div>
+                        <div id="featured_rating">
+                            <% let rating = popularGames[0].rating;
+                            if(rating == '' || rating ==null){
+                                rating = "N/A";
+                            }%>
+                            <span><strong>Rating:</strong> <%=rating%> </span>
+                        </div>
                     </div>
+                    <!-- Next and previous buttons -->
+                    <a id="prev">❮</a>
+                    <a id="next">❯</a>
                     
-                    <div id="featured_platforms">
-                        <span><strong>Platform(s):</strong></span>
-                        <%for(platforms of popularGames[0].platform){%>
-                            <li style="display: inline-block;"><%=platforms%></li>,
-                        <%}%>
-                    </div>
-                    <div id="featured_rating">
-                        <% let rating = popularGames[0].rating;
-                        if(rating == '' || rating ==null){
-                            rating = "N/A";
-                        }%>
-                        <span><strong>Rating:</strong> <%=rating%> </span>
-                    </div>
+                    
                 </div>
-                <!-- Next and previous buttons -->
-                <a id="prev">❮</a>
-                <a id="next">❯</a>
-            </div>
-                <!-- Thumbnail images -->
-            <div id="row">
-            </div>
+                <div id="row">
+                    <!-- Thumbnail images -->
+                </div>
+            </div>     
         </section>
         
 
@@ -254,10 +259,10 @@
                 let platformsTxt = "";
                 let genresTxt = "";
                 for(genre of games[currentSlide].genres){
-                    genresTxt +=genre;
+                    genresTxt +=" "+genre;
                 }
                 for(platform of games[currentSlide].platform){
-                    platformsTxt += platform;
+                    platformsTxt += " "+platform;
                 }
                 platforms.textContent = platformsTxt;
                 genres.textContent = genresTxt;

@@ -1,0 +1,30 @@
+.all_genres {
+    width: 200px;
+}
+  
+.select_genre {
+background-color:DodgerBlue;
+color: white;
+padding: 1rem;
+border-radius: 20px 20px 0 0;
+border: 1px solid black;
+}
+
+.select_genre select {
+width: 100%;
+font-weight: bold;
+}
+
+
+#dropDown {
+display: none;
+border: 1px #dadada solid;
+}
+
+#dropDown label {
+display: inline-block;
+}
+
+#dropDown label:hover {
+background-color: #1e90ff;
+}
