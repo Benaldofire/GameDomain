@@ -191,6 +191,18 @@ nav a:focus{
     position: relative;
     margin: 0 auto;
     padding: 0;
+    background-color: black;
+    height: 50vw; /* Relative to 50% of the width of the viewport*/
+    max-height: 600px;
+    overflow: hidden; /* cut off any extra picture showing*/
+}
+
+#featured-img{
+    width: 100%;
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    object-fit: cover;
 }
 
 .featured-container a {
@@ -259,7 +271,7 @@ nav a:focus{
 #row{
     display: grid;
     grid-template-columns: auto auto auto auto auto; /*5 rows*/
-    width: 100%;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -495,17 +507,10 @@ legend{
         margin: 0 auto;
     }
 
-    
-    .featured-resize{
-        width: 70%;
-        margin: 0 auto;
+    .featured-background{
+        background-color: black;
     }
 
-    #featured-img{
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
 
     .column > img {
         height: 100%;
@@ -538,7 +543,22 @@ legend{
     
 }
 
+@media screen and (min-width: 1921px){
 
+    
+    .featured-main{
+        height: 50vw; /* Relative to 50% of the width of the viewport*/
+        max-height: 760px;
+    }
+
+    #featured-img{
+        max-width: 1920px;
+    }
+
+    #row{
+        max-width: 1920px;
+    }
+}
 
 
 

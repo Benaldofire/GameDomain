@@ -5,26 +5,14 @@
         <section class="featured featured-container">
             <h2 class="section-title top-left">Featured</h2>
             <!-- main full width images-->
-            <div class="featured-resize">
+            <div class="featured-background">
                 <div class="featured-main">
                     <img src=<%=popularGames[0].background_img%> alt=<%=popularGames[0].name%> id="featured-img">
                     <hr class="featured-divider"> <!--put in  the css-->
                     <div class="text-block">
                         <h4 id="featured_title"><%=popularGames[0].name%></h4>
                         <div id = "featured_description"><%=popularGames[0].description%></div>
-                        <div id="featured_genres">
-                            <span><strong>Genres:</strong></span>
-                            <%for(genre of popularGames[0].genres){%>
-                                <li style="display: inline-block;"><%=genre%></li>
-                            <%}%>
-                        </div>
                         
-                        <div id="featured_platforms">
-                            <span><strong>Platform(s):</strong></span>
-                            <%for(platforms of popularGames[0].platform){%>
-                                <li style="display: inline-block;"><%=platforms%></li>,
-                            <%}%>
-                        </div>
                         <div id="featured_rating">
                             <% let rating = popularGames[0].rating;
                             if(rating == '' || rating ==null){
@@ -36,13 +24,11 @@
                     <!-- Next and previous buttons -->
                     <a id="prev">❮</a>
                     <a id="next">❯</a>
-                    
-                    
                 </div>
                 <div id="row">
                     <!-- Thumbnail images -->
                 </div>
-            </div>     
+            </div>
         </section>
         
 
@@ -207,9 +193,9 @@
             let img = document.querySelector("#featured-img");
             let desc = document.querySelector("#featured_description");
             let title = document.querySelector("#featured_title");
-            let platforms = document.querySelector("#featured_platforms");
+            //let platforms = document.querySelector("#featured_platforms");
             let rating = document.querySelector("#featured_rating");
-            let genres = document.querySelector("#featured_genres");
+            //let genres = document.querySelector("#featured_genres");
             function next(){
                 currentSlide++;
                 //if its end of the list then return to 0 upon press
@@ -231,8 +217,8 @@
                 for(platform of games[currentSlide].platform){
                     platformsTxt += platform;
                 }
-                platforms.textContent = platformsTxt;
-                genres.textContent = genreTxt;
+                //platforms.textContent = platformsTxt;
+                //genres.textContent = genreTxt;
 
                 //remove active status on previous thumbnails
                 let column_imgs = document.querySelectorAll(".column");
