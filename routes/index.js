@@ -124,6 +124,54 @@ router.get('/deleteAll', async function(res,req){
         console.log(err);
     }
 });
+
+router.get('/fetchData', async function(res,req){
+    const API_KEY = process.env.API_KEY;
+    const url = "https://api.rawg.io/api/games?key="+API_KEY+"&dates=2020-01-01,2021-12-31&platforms=186,187,18,1,7&ordering=-added&page_size=50";
+    const rawgResponse = await fetch(url);
+    const data = await rawgResponse.json();
+
+    for(item of data.results){
+
+        //extract the platform names and put it in an array to use for the database
+        let platforms = [];
+        for(object of item.platforms){
+            platforms.push(object.platform.name);
+        }
+
+        let genres = [];
+        for(genre of item.genres){
+            genres.push(genre.name);
+        }
+
+        //2. store each data into the database schema
+        let game = new Game({
+            id: item.id,
+            name: item.name,
+            genres: genres, 
+            rating: item.metacritic,
+            background_img: item.background_image, 
+            description: "N/A",
+            platform: platforms,
+            release_Date: item.released
+        });
+
+        
+        game.save((error, game)=>{
+            if(error){
+                //Note: if there is a single error retrieving the data then your whole page will crash.
+                //consider fixing this issue in the future
+                console.log(error.message);
+                res.render("index", {
+                    errorMessage: "Error retrieving games from Database"
+                })
+            }
+            else{
+                console.log(`${game.name} successfully saved`);
+            }
+        });
+    }
+});
 //export the router we created
 
 module.exports = router;

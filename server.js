@@ -38,6 +38,7 @@ db.once('open', ()=>console.log('connected to Mongoose'))
 app.use('/', indexRouter);
 app.use('/popular', indexRouter);
 app.use('/deleteAll', indexRouter);
+app.use('/fetchData', indexRouter);
 app.use('/search', searchRouter);
 app.use('/platform', platformsRouter);
 app.use('/platform/filter', platformsRouter);
