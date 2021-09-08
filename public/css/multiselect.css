@@ -1,30 +1,91 @@
-.all_genres {
+
+.dropdown{
     width: 200px;
-}
+    margin: 10px;
+    text-align: left;
+    position: relative; /* need it for the drop down content, to be positioned relative to the container*/
+    font-size: 1rem;
+  }
   
-.select_genre {
-background-color:DodgerBlue;
-color: white;
-padding: 1rem;
-border-radius: 20px 20px 0 0;
-border: 1px solid black;
-}
-
-.select_genre select {
-width: 100%;
-font-weight: bold;
-}
-
-
-#dropDown {
-display: none;
-border: 1px #dadada solid;
-}
-
-#dropDown label {
-display: inline-block;
-}
-
-#dropDown label:hover {
-background-color: #1e90ff;
-}
+  .dropdown-name{
+    display:flex;
+    border-radius: 5px;
+    padding-left: 5px;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+  }
+  
+  /*change the bottom side of the border radius to boxed*/
+  .dropdown:hover .dropdown-name{
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .dropdown-content{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    display: none;
+    border-radius: 0 0 5px 5px;
+    position:absolute;/* positioned relative to dropdown contianer*/
+    z-index: 1;
+    width:100%;
+  }
+  
+  
+  .dropdown:hover .dropdown-content{
+    display:block;
+  }
+  
+  .labels{
+    width: 100%;
+  }
+  
+  .labels:hover{
+    background-color: rgb(40, 110, 240);
+  }
+  
+  .fa{
+    padding: 0 10px 0 0;
+    margin: 0;
+  }
+  
+  input[type=checkbox] +label {
+    cursor: pointer;
+    margin-right: 20px;
+    display: block;
+  }
+  
+  /*hide the default checkboxes*/
+  input[type=checkbox] {
+    position: absolute; 
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+  
+  /*add the radio button in front of the checkbox labels*/
+  input[type=checkbox] + label::before {
+    content: "\00a0";   /* Non-breaking space */
+    display: inline-block; 
+    width: 16px;
+    height: 16px;  
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em; 
+    margin-right: 10px;
+    border: 0.125em solid white;   /* to push focus shadow away */
+    background-color: #aaa;
+  }
+  
+  input[type=checkbox]:checked + label::before {
+    content: "\2713";  /* Checkmark */
+    color: white;
+    background: green;      
+  }
+  
+  input[type=checkbox]:focus + label::before {
+    box-shadow: 0 0 0 1px gray;
+  }
+  
+  
