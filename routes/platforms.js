@@ -20,7 +20,7 @@ let platform = "";
 router.get('/:platform', async (req,res)=>{
     platform = req.params.platform;
     let query = Game.find({});
-    //get the first 24 games for a specific platform from the database
+    //get the first 24 games for the :platform param sent from the database
     if(platform == "pc"){
         option = query.where("platform").in(pc_platform).limit(24);
     }
@@ -32,7 +32,7 @@ router.get('/:platform', async (req,res)=>{
     }
 
     try{
-        const games = await query.exec()
+        const games = await query.exec();
         //console.log(games);
         //send the data from the database to the games/index
         res.render("games/index", {
@@ -57,19 +57,9 @@ router.post('/filter', async (req,res)=>{
         sort: If asc then sort by name
         recent/rating: sort by release date or rating
     */
-    let query = Game.find({});
-    if(platform == "pc"){
-        option = query.where("platform").in(pc_platform).limit(24);
-    }
-    else if(platform == "ps"){
-        option = query.where("platform").in(ps_platform).limit(24);
-    }
-    else if(platform == "xbox"){
-        option = query.where("platform").in(xbox_platform).limit(24);
-    }
-    
     try{
-        //get the first 25 pc games from the database        
+        
+        //get the first 25 platform specified games from the database        
         //{releasedate: "asc"}
         //{rating: "asc"}
         const sortField = req.body.sortby; 
@@ -94,9 +84,21 @@ router.post('/filter', async (req,res)=>{
         if(genres.length == 0){
             genres = ["Action","RPG","battleroyale","Shooter"];
         }
-        
-        //it has to have platforms as PC !!!!!!!!!!!!!!!!
-        const games = await Game.find({}).where("genres").in(genres).where("platform").in(["PC"]).sort(sortOption).limit(24);
+
+        let query = Game.find({});
+
+        if(platform == "pc"){
+            option = query.where("genres").in(genres).where("platform").in(pc_platform).sort(sortOption).limit(24);
+        }
+        else if(platform == "ps"){
+            option = query.where("genres").in(genres).where("platform").in(ps_platform).sort(sortOption).limit(24);
+        }
+        else if(platform == "xbox"){
+            option = query.where("genres").in(genres).where("platform").in(xbox_platform).sort(sortOption).limit(24);
+        }
+
+        const games = await query.exec();
+
         //console.log(games);
         //send the data from the database to the pc/index, also send the data that was previously filled to repopulate the fields
         res.render("games/index", {

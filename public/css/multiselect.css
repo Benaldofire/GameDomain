@@ -9,6 +9,7 @@
   
   .dropdown-name{
     display:flex;
+    cursor: pointer;
     border-radius: 5px;
     padding-left: 5px;
     background-color: black;
@@ -16,10 +17,11 @@
     justify-content: space-between;
   }
   
-  /*change the bottom side of the border radius to boxed*/
-  .dropdown:hover .dropdown-name{
+  /*change the bottom side of the border radius to boxed
+  .dropdown:focus .dropdown-name{
     border-radius: 5px 5px 0 0;
   }
+  */
   
   .dropdown-content{
     background-color: black;
@@ -32,10 +34,11 @@
     width:100%;
   }
   
-  
+  /*
   .dropdown:hover .dropdown-content{
     display:block;
   }
+  */
   
   .labels{
     width: 100%;
@@ -51,7 +54,6 @@
   }
   
   input[type=checkbox] +label {
-    cursor: pointer;
     margin-right: 20px;
     display: block;
   }

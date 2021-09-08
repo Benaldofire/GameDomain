@@ -487,7 +487,9 @@ footer a{
     border-radius: 5px;
     border: 0;
     margin: 5px;
+    cursor: pointer;
 }
+
 
 .selection:focus{
     border-radius: 5px 5px 0 0;
