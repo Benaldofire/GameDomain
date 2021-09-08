@@ -106,6 +106,7 @@ header{
 
 nav{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -145,7 +146,7 @@ nav a:focus{
     flex-direction: row;
     justify-content: flex-end;
     margin-bottom: 20px;
-    width: 50%;
+    width: 100%;
 }
 
 #searchInput{
@@ -471,11 +472,12 @@ footer a{
 /*------partials-----*/
 
 .filter-container{
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: end;
     align-items: center;
     margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 .selection{
@@ -518,6 +520,7 @@ footer a{
         background-color: black;
     }
 
+    
 
     .column > img {
         height: 100%;
@@ -546,6 +549,14 @@ footer a{
         flex-direction: row;
         width: 70%;
         margin: 0 auto;
+    }
+
+    .search-container{
+        width: 50%;
+    }
+    
+    .filter-container{
+        width: 70%;
     }
     
 }
