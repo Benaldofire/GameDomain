@@ -4,6 +4,7 @@
     <input class="selection" type="submit" value="Filter">
 </form>
 
+<!-- create a javascript function that inserts the data-->
 <div class="backgroundClr">
     <div class="games flex">
         <!--for each game, generate a div container for it-->
@@ -17,15 +18,29 @@
                     </div>
                     <div class="genres">
                         <span><strong>Genres:</strong></span>
+                        <!-- put the display in the css file-->
                         <%for(genre of game.genres){%>
-                            <li style="display: inline-block;"><%=genre%></li>,
+                            <li style="display: inline-block;" class="genre_list"><%=genre%></li>,
                         <%}%>
                     </div>
                     <div class="platforms">
                         <span><strong>Platform(s):</strong></span>
+                        <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                        let playstation = true; 
+                        %>
                         <%for(platforms of game.platform){%>
-                            <li style="display: inline-block;"><%=platforms%></li>,
-                        <%}%>
+                            <!-- insert image associated with the specific platform-->
+                            <%if(platforms == "Xbox One"){%>
+                                <i class="fab fa-xbox"></i>
+                            <%}%>
+                            <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                <%playstation = false;%>
+                                <i class="fab fa-playstation"></i>
+                            <%}%>
+                            <%if(platforms == "PC"){%>
+                                <i class="fab fa-windows"></i>
+                            <%}
+                        }%>
                     </div>
                     <div>
                         <% let rating = game.rating;
@@ -35,7 +50,8 @@
                         <span><strong>Rating: </strong><%=rating%> </span>
                     </div>
                     <div>
-                        <span><strong>Release Date:</strong> <%=game.release_Date%> </span>
+                        <!--new Date(game.release_Date).toISOString().split('T')[0]-->
+                        <span><strong>Release Date:</strong> <%=(game.release_Date.toDateString()).slice(4,game.release_Date.length)%> </span>
                     </div>
                 </div>
             </div>
