@@ -101,7 +101,6 @@ header{
 .main-header{
     background-color: #171717;
     padding-bottom: 0;
-    padding-top: 3rem;
 }
 
 nav{
@@ -192,16 +191,15 @@ nav a:focus{
     position: relative;
     margin: 0 auto;
     padding: 0;
-    background-color: black;
-    height: 50vw; /* Relative to 50% of the width of the viewport*/
-    max-height: 600px;
+    height: 53vw; /* Relative to 50% of the width of the viewport*/
+    max-height: 760px;
     overflow: hidden; /* cut off any extra picture showing*/
 }
 
 #featured-img{
     width: 100%;
-    height: 100%;
     max-width: 1280px;
+    height: 100%;
     margin: 0 auto;
     object-fit: cover;
 }
@@ -220,11 +218,6 @@ nav a:focus{
     margin: 0;
 }
 
-.featured-divider{
-    margin:0; 
-    padding:0; 
-    border: 1px solid black;
-}
 
 .featured-main .text-block {
     position: absolute;
@@ -289,6 +282,7 @@ nav a:focus{
 .active,
 .column:hover{
     opacity: 1;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
 }
 
 
@@ -338,11 +332,6 @@ nav a:focus{
     padding: 1em;
 }
 
-.category-1{
-
-}
-
-
 .games{
     display: flex;
     flex-wrap: wrap;
@@ -370,10 +359,12 @@ nav a:focus{
     position: relative;
 }
 
+
 .game:hover,
 .game:focus{
     transform: scale(1.05);
 }
+
 
 /* ensuring image takes full width of container and is visible*/
 .game_img{
@@ -518,15 +509,35 @@ footer a{
         margin: 0 auto;
     }
 
-    .featured-background{
-        background-color: black;
+    .featured-main{
+        width: 100%;
+        height:53vw;
+        max-width:1280px;
+        max-height: 600px;
+        border-radius: 20px;
+        box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
     }
 
-    
+
+    .column{
+        margin: 5px;
+        border-radius: 10px;
+    }
 
     .column > img {
         height: 100%;
         object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .featured-main .text-block {
+        bottom: 20%;
+        left: 5%;
+        width: 50%;
+        height: 20%;
+        border-radius: 20px;
+        /*font-size: clamp(0.5rem, 3.5vw, 1rem);*/
     }
 
     .featured-container a{
@@ -535,8 +546,15 @@ footer a{
         font-size: 1.5rem;
     }
 
+    .preview{
+        width: 40vw;
+        margin: 0 auto;
+        bottom: 0;
+    }
+
     #row{
-        width: 100%;
+        width: 70%;
+        
     }
     
 
@@ -564,20 +582,16 @@ footer a{
 }
 
 @media screen and (min-width: 1921px){
-
     
     .featured-main{
-        height: 50vw; /* Relative to 50% of the width of the viewport*/
+        max-width: 1440px;
         max-height: 760px;
     }
-
+    /*dont want featured image being too big on 1920px screens*/
     #featured-img{
-        max-width: 1920px;
+        max-width: 1440px;
     }
 
-    #row{
-        max-width: 1920px;
-    }
 }
 
 

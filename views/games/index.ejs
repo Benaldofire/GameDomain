@@ -11,30 +11,32 @@
             <div class="game">
                 <h4 class="game-title"><%=game.name%></h3>
                 <img src=<%=game.background_img%> alt=<%=game.name%> class="games_img_smaller">
-                <div class="game-description">
-                    <p ><%=game.description%></p>
-                </div>
-                <div class="genres">
-                    <span><strong>Genres:</strong></span>
-                    <%for(genre of game.genres){%>
-                        <li style="display: inline-block;"><%=genre%></li>,
-                    <%}%>
-                </div>
-                <div class="platforms">
-                    <span><strong>Platform(s):</strong></span>
-                    <%for(platforms of game.platform){%>
-                        <li style="display: inline-block;"><%=platforms%></li>,
-                    <%}%>
-                </div>
-                <div>
-                    <% let rating = game.rating;
-                    if(rating == '' || rating ==null){
-                        rating = "N/A";
-                    }%>
-                    <span><strong>Rating: </strong><%=rating%> </span>
-                </div>
-                <div>
-                    <span><strong>Release Date:</strong> <%=game.release_Date%> </span>
+                <div class="content-container">
+                    <div class="game-description">
+                        <p ><%=game.description%></p>
+                    </div>
+                    <div class="genres">
+                        <span><strong>Genres:</strong></span>
+                        <%for(genre of game.genres){%>
+                            <li style="display: inline-block;"><%=genre%></li>,
+                        <%}%>
+                    </div>
+                    <div class="platforms">
+                        <span><strong>Platform(s):</strong></span>
+                        <%for(platforms of game.platform){%>
+                            <li style="display: inline-block;"><%=platforms%></li>,
+                        <%}%>
+                    </div>
+                    <div>
+                        <% let rating = game.rating;
+                        if(rating == '' || rating ==null){
+                            rating = "N/A";
+                        }%>
+                        <span><strong>Rating: </strong><%=rating%> </span>
+                    </div>
+                    <div>
+                        <span><strong>Release Date:</strong> <%=game.release_Date%> </span>
+                    </div>
                 </div>
             </div>
         <%}%>

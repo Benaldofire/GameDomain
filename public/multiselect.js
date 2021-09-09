@@ -24,6 +24,7 @@ function dropList(){
     console.log("clicked doc")
     if (expanded) {
         dropdownContent.style.display = "none";
+        dropdownName.style.borderRadius  = "5px";
         expanded = false;
     }
     }, false);

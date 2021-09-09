@@ -5,14 +5,11 @@
         <section class="featured featured-container">
             <h2 class="section-title top-left">Featured</h2>
             <!-- main full width images-->
-            <div class="featured-background">
                 <div class="featured-main">
                     <img src=<%=popularGames[0].background_img%> alt=<%=popularGames[0].name%> id="featured-img">
-                    <hr class="featured-divider"> <!--put in  the css-->
                     <div class="text-block">
                         <h4 id="featured_title"><%=popularGames[0].name%></h4>
                         <div id = "featured_description"><%=popularGames[0].description%></div>
-                        
                         <div id="featured_rating">
                             <% let rating = popularGames[0].rating;
                             if(rating == '' || rating ==null){
@@ -25,12 +22,12 @@
                     <a id="prev">❮</a>
                     <a id="next">❯</a>
                 </div>
-                <div id="row">
-                    <!-- Thumbnail images -->
+                
+                <!-- Preview images -->
+                <div class="preview">
+                    <div id="row"></div>
                 </div>
-            </div>
         </section>
-        
 
         <section class="intro">
             <h3 class="section-title"> Discover <span class="text-primary">current</span> and <span class="text-primary">upcoming</span> games right here at Game Domain</h2>
@@ -316,4 +313,5 @@
         }
 
         featuredImg(groupdata);
+
     </script>
