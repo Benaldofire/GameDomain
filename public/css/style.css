@@ -140,6 +140,7 @@ nav a:focus{
 }
 
 
+
 .search-container{
     display: flex;
     flex-direction: row;
@@ -356,6 +357,7 @@ nav a:focus{
     margin: 1em;
     max-width: 360px;
     position: relative;
+    border-radius: 1em;
 }
 
 

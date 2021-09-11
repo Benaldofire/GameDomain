@@ -15,12 +15,13 @@
                 <div class="content-container">
                     <div class="game-description">
                         <p ><%=game.description%></p>
+                        <div><a class="btn-small btn-accent" href="#">Learn More</a></div>
                     </div>
                     <div class="genres">
                         <span><strong>Genres:</strong></span>
                         <!-- put the display in the css file-->
                         <%for(genre of game.genres){%>
-                            <li style="display: inline-block;" class="genre_list"><%=genre%></li>,
+                            <li class="genre_list"><%=genre%></li>
                         <%}%>
                     </div>
                     <div class="platforms">

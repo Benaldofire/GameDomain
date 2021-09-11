@@ -1,0 +1,33 @@
+
+/*For the view more button */
+
+.btn {
+    padding: 0.5em 2.5em;
+    color: white;
+    text-decoration: none;
+    margin: 0.5em 0;
+    border-radius: 0.5em;
+}
+
+.btn-small {
+    padding: 0.5em 1.5em;
+    font-size: 0.8rem;
+    color: white;
+    text-decoration: none;
+    margin: 0.5em 0;
+    border-radius: 0.5em;
+}
+
+.btn-accent{
+    background: var(--clr-accent);
+}
+
+.btn-accent:hover,
+.btn-accent:hover{
+    background: var(--clr-accent-dark);
+}
+
+/* for the game info genre, platform etc*/
+.genre_list{
+    display: inline-block;
+}
