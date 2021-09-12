@@ -9,6 +9,12 @@ for(let i =0; i < gameTitle.length; i++){
 }
 
 
+/*
+-----------ISSUES FIX ASAP--------------------
+when you click on the preview below, it doesnt update the rating
+when you click the previous button, it doesnt update the preview selector
+
+*/
 //getFeatured();
 //Slide show
 async function featuredImg(){
