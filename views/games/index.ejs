@@ -1,5 +1,4 @@
-<!--PC-->
-<form action="/platform/filter" method="POST" class="filter-container">
+<form action="/platform/games/filter" method="GET" class="filter-container">
     <%- include("../partials/filter.ejs")%>
     <input class="selection" type="submit" value="Filter">
 </form>
@@ -15,10 +14,10 @@
                 <div class="content-container">
                     <div class="game-description">
                         <p ><%=game.description%></p>
-                        <div><a class="btn-small btn-accent" href="#">Learn More</a></div>
+                        <div><a class="btn-small btn-accent" href="/games/<%=game.id%>">Learn More</a></div>
                     </div>
                     <div class="genres">
-                        <span><strong>Genres:</strong></span>
+                        <span class="genre-title"><strong>Genres:</strong></span>
                         <!-- put the display in the css file-->
                         <%for(genre of game.genres){%>
                             <li class="genre_list"><%=genre%></li>
@@ -60,4 +59,4 @@
     </div>    
 </div>
 
-<script src="/multiselect.js"></script>
+<script src="/multiselect.js" defer></script>

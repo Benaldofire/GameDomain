@@ -30,6 +30,9 @@ router.get('/:platform', async (req,res)=>{
     else if(platform == "xbox"){
         option = query.where("platform").in(xbox_platform).limit(24);
     }
+    else{
+        res.send("Page Not Available");
+    }
 
     try{
         const games = await query.exec();
@@ -50,7 +53,7 @@ router.get('/:platform', async (req,res)=>{
     }
 });
 
-router.post('/filter', async (req,res)=>{
+router.get('/games/filter', async (req,res)=>{
     /*
         based off the request sent, data needed in the database and render the pc/index with the new results
         Genres: includes those genres
@@ -62,22 +65,22 @@ router.post('/filter', async (req,res)=>{
         //get the first 25 platform specified games from the database        
         //{releasedate: "asc"}
         //{rating: "asc"}
-        const sortField = req.body.sortby; 
-        let sort = req.body.sort;
+        const sortField = req.query.sortby; 
+        let sort = req.query.sort;
         let sortOption = {};
         sortOption[sortField] = sort;
         let genres = [];
         //if statement to see which values/genres are ticked and add it to the array
-        if(req.body.action){
+        if(req.query.action){
             genres.push("Action");
         }
-        if(req.body.rpg){
+        if(req.query.rpg){
             genres.push("RPG");
         }
-        if(req.body.battleroyale){
+        if(req.query.battleroyale){
             genres.push("battleroyale");
         }
-        if(req.body.shooter){
+        if(req.query.shooter){
             genres.push("Shooter");
         }
 
@@ -103,17 +106,63 @@ router.post('/filter', async (req,res)=>{
         //send the data from the database to the pc/index, also send the data that was previously filled to repopulate the fields
         res.render("games/index", {
             games: games,
-            action:req.body.action,
-            rpg:req.body.rpg,
-            shooter:req.body.shooter,
-            battleroyale:req.body.battleroyale,
+            action:req.query.action,
+            rpg:req.query.rpg,
+            shooter:req.query.shooter,
+            battleroyale:req.query.battleroyale,
             sort:sort,
-            sortby:req.body.sortby
+            sortby:req.query.sortby
         });
     }
     catch (err){
         console.log(err);
     }
+});
+
+
+
+router.get('/all/:genre', async (req, res)=>{
+    console.log(req.params.genre);
+    let genres = []
+    let action = false;
+    let rpg = false;
+    let shooter = false;
+    let battleroyale = false;
+
+    try{
+        if(req.params.genre =="action"){
+            genres.push("Action");
+            action = true;
+        }
+        if(req.params.genre == "rpg"){
+            genres.push("RPG");
+            rpg = true;
+        }
+        if(req.params.genre == "battleroyale"){
+            genres.push("battleroyale");
+            battleroyale = true;
+        }
+        if(req.params.genre == "shooter"){
+            genres.push("Shooter");
+            shooter = true;
+        }
+
+        
+        let games = await Game.find({}).where("genres").in(genres).limit(24);
+        res.render("games/index.ejs",{
+            games: games,
+            action:action,
+            rpg:rpg,
+            shooter:shooter,
+            battleroyale:battleroyale,
+            sort:"Name",
+            sortby:"asc"
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
+    
 });
 //export the router we created
 

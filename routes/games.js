@@ -1,0 +1,1 @@
+//move the routes which have to do with individual game querying here

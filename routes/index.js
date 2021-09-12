@@ -83,7 +83,7 @@ router.get('/', async (req,res)=>{
     try{
         //get the first 5 games from the database for each category
         //put in the right query
-        const popularGames = await Game.find({}).limit(5);
+        const popularGames = await Game.find({}).sort({ "rating": "desc" }).limit(5);
         const actionGames = await Game.find({}).where("genres").in(["Action"]).limit(4);
         const fpsGames = await Game.find({}).where("genres").in(["Shooter"]).limit(4);
         const rpgGames = await Game.find({}).where("genres").in(["RPG"]).limit(4);
@@ -102,18 +102,18 @@ router.get('/', async (req,res)=>{
     }
 });
 
-router.get('/popular', async function(res,req){
+router.get('/popular', async function(req,res){
     try{
-        const popularGames = await Game.find({}).sort({ "rating": "asc" }).limit(4);
-        //console.log(popularGames);
-        //res.json(popularGames);
+        const popularGames = await Game.find({}).sort({ "rating": "desc" }).limit(5);
+        console.log("Popular games data requested");
+        res.json(popularGames);
     }
     catch(err){
         console.log(err);
     }
 });
 
-router.get('/deleteAll', async function(res,req){
+router.get('/deleteAll', async function(req,res){
     try{
         //deletes everything in db
         const popularGames = await Game.deleteMany({});
@@ -125,7 +125,7 @@ router.get('/deleteAll', async function(res,req){
     }
 });
 
-router.get('/fetchData', async function(res,req){
+router.get('/fetchData', async function(req,res){
     const API_KEY = process.env.API_KEY;
     const url = "https://api.rawg.io/api/games?key="+API_KEY+"&dates=2020-01-01,2021-12-31&platforms=186,187,18,1,7&ordering=-added&page_size=50";
     const rawgResponse = await fetch(url);
@@ -172,6 +172,35 @@ router.get('/fetchData', async function(res,req){
         });
     }
 });
+
+router.get('/games/:id', async (req,res)=>{
+    //check if the game description is in the database (game.description != Null), 
+    //if it's not then you have to fetch the details from the Raw.io database and then add it to your database and then send it to be rendered
+    console.log("accessed");
+    let game = await Game.find({}).where("id").in(req.params.id);
+    if(game.description == 'N/A'){
+        //fetch data from raw.io
+    }
+    console.log(game);
+    //res.send(games)
+});
 //export the router we created
+
+/*
+// Find the student with this ID
+Student.findById("56e711a9e1b0f9080f7a5621", function(err, stu) {
+   if (stu === null) {
+      console.log("Student not found");
+   }
+   else {
+      // Increase student's GPA and save
+      stu.gpa += 0.1;
+      stu.save(function (err, stu) {
+         console.log("New GPA: " + stu.gpa);
+      });
+   }
+});
+*/
+
 
 module.exports = router;

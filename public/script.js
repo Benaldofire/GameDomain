@@ -3,13 +3,10 @@
 var gameTitle = document.getElementsByClassName("game-title");
 for(let i =0; i < gameTitle.length; i++){
     let idealTitle = gameTitle[i].textContent.slice(0,32)+"...";
-    
     if(gameTitle[i].textContent.length > 35){
         gameTitle[i].innerHTML = idealTitle;
     }
 }
-
-
 
 
 //getFeatured();
@@ -24,28 +21,43 @@ async function featuredImg(){
     let img = document.querySelector("#featured-img");
     let desc = document.querySelector("#featured_description");
     let title = document.querySelector("#featured_title");
-   
+    //let platforms = document.querySelector("#featured_platforms");
+    let rating = document.querySelector("#featured_rating");
+    //let genres = document.querySelector("#featured_genres");
     function next(){
+        currentSlide++;
+        //if its end of the list then return to 0 upon press
+        if(currentSlide >= games.length ){
+            currentSlide = 0;
+        }
 
-    currentSlide++;
-    //if its end of the list then return to 0 upon press
-    if(currentSlide >= games.length ){
-        currentSlide = 0;
-    }
+        // now change current image and desceiption to the new game
+        img.src = games[currentSlide].background_img;
+        desc.textContent = games[currentSlide].description;
+        title.textContent = games[currentSlide].name;
+        rating.textContent = "Rating: "+games[currentSlide].rating;
+        //loop needed for platforms and genres
+        let platformsTxt = "Platform(s): ";
+        let genreTxt = "Genres: ";
+        for(genre of games[currentSlide].genres){
+            genreTxt +=genre;
+        }
+        for(platform of games[currentSlide].platform){
+            platformsTxt += platform;
+        }
+        //platforms.textContent = platformsTxt;
+        //genres.textContent = genreTxt;
 
-    // now change current image and desceiption to the new game
-    img.src = games[currentSlide].background_img;
-    desc.textContent = games[currentSlide].description;
-    title.textContent = games[currentSlide].name;
+        //remove active status on previous thumbnails
+        let column_imgs = document.querySelectorAll(".column");
+        for(column of column_imgs){
+            column.classList.remove("active");
+        }
 
-    //remove active status on previous thumbnails
-    let column_imgs = document.querySelectorAll(".column");
-    for(column of column_imgs){
-        column.classList.remove("active");
-    }
-
-    //change set current slide to active
-    column_imgs[currentSlide].classList.add("active");
+        //change set current slide to active
+        column_imgs[currentSlide].classList.add("active");
+        clearInterval(slideTimer);
+        slideTimer = setInterval(next, 5000);
     }
 
     function prev(){
@@ -56,13 +68,28 @@ async function featuredImg(){
         img.src = games[currentSlide].background_img;
         desc.textContent = games[currentSlide].description;
         title.textContent = games[currentSlide].name;
+        rating.textContent = games[currentSlide].rating;
+        //loop needed for platforms and genres
+        let platformsTxt = "";
+        let genresTxt = "";
+        for(genre of games[currentSlide].genres){
+            genresTxt +=" "+genre;
+        }
+        for(platform of games[currentSlide].platform){
+            platformsTxt += " "+platform;
+        }
+        platforms.textContent = platformsTxt;
+        genres.textContent = genresTxt;
+
+        clearInterval(slideTimer);
+        slideTimer = setInterval(next, 5000);
     }
 
     document.querySelector("#next").addEventListener('click',next);
     document.querySelector("#prev").addEventListener('click',prev);
     
 
-  
+
     //automatic slides
     
     let slideTimer = setInterval(next, 5000);
@@ -99,6 +126,7 @@ async function featuredImg(){
             let column = document.createElement('div');
             column.classList.add('column');
             let img = document.createElement('img');
+            img.classList.add("column_img");
             img.src = games[i].background_img;
             img.alt = i;
             column.append(img);
@@ -112,7 +140,6 @@ async function featuredImg(){
         }
     }
     thumbnail();
-
     
 }
 

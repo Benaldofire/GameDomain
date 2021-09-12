@@ -39,9 +39,12 @@ app.use('/', indexRouter);
 app.use('/popular', indexRouter);
 app.use('/deleteAll', indexRouter);
 app.use('/fetchData', indexRouter);
+app.use('/games/id', indexRouter);
 app.use('/search', searchRouter);
 app.use('/platform', platformsRouter);
-app.use('/platform/filter', platformsRouter);
+app.use('/platform/games/filter', platformsRouter);
+app.use('/platform/all/genre', platformsRouter);
+
 //process.env.PORT will be for when we deploy it. Server will tell us what server it's listening to. 
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> console.log(`Listening on port: ${port}` ));

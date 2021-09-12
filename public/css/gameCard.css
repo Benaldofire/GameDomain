@@ -28,6 +28,40 @@
 }
 
 /* for the game info genre, platform etc*/
+.genres{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.genre-title::after{
+    content: "\00a0"; /*non breaking sapace*/
+}
+
 .genre_list{
     display: inline-block;
+    list-style-type: disc;
+}
+
+/*put a comma after each genre
+The element1~element2 selector matches occurrences of element2 that are preceded by element1
+*/
+.genre_list ~ .genre_list::before{
+    content: ", "
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 1em;
+    text-align: left;
+}
+.fa-windows{
+    color: #00A4EF;
+}
+.fa-xbox{
+    color: #107C10;
+}
+.fa-playstation{
+    color: #003087;
 }

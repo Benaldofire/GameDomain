@@ -1,8 +1,8 @@
+//multiselect js is in the game.ejs, as it applies to only that template
 window.addEventListener("DOMContentLoaded", dropList);
 
 //Utilizing the event caputuring and bubbling, if 3rd param of event listener is set to true then handler is in event capturing phase
 function dropList(){
-    console.log("here");
     let expanded = false;
     const dropdown = document.querySelector('.dropdown');
     const dropdownContent = document.querySelector(".dropdown-content");
@@ -21,7 +21,6 @@ function dropList(){
     }, true);
 
     document.addEventListener('click', function(event){
-    console.log("clicked doc")
     if (expanded) {
         dropdownContent.style.display = "none";
         dropdownName.style.borderRadius  = "5px";
