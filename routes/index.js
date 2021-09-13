@@ -181,7 +181,8 @@ router.get('/games/:id', async (req,res)=>{
     if(game.description == 'N/A'){
         //fetch data from raw.io
     }
-    console.log(game);
+    //console.log(game);
+    res.send("Work in Progress");
     //res.send(games)
 });
 //export the router we created
