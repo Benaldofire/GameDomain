@@ -1,0 +1,138 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    align-items: center;
+}
+
+.open_nav{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 1.75em;
+    color: white;
+}
+
+.open_nav:hover, .open_nav:focus{
+    color: var(--clr-primary)
+}
+
+
+
+#nav-content{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow:auto;
+    transition: 0.5s;
+    padding-top: 2em; 
+    background-color: #171717;
+    box-shadow: 30px 50px 100px #85888C;
+}
+
+nav li{
+    width: 100%;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.5em;
+    color: var(--clr-primary);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+nav a:hover,
+nav a:focus{
+    color: white;
+    background-color: var(--clr-primary);
+}
+
+
+/*Dropdown selector*/
+
+
+
+.search-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /*margin-bottom: 20px;*/
+    width: 100%;
+}
+
+#searchInput{
+    font-size: 1rem;
+    padding: 12px 20px 12px 40px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    width: 40%;
+    transition: width 0.4s ease-in-out;
+}
+
+#searchInput:focus {
+    width: 60%;
+}
+
+.search-btn{
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    padding: 12px 18px;
+    margin-left: 0;
+    border-radius: 0 50px 50px 0;
+}
+
+
+.search-btn:hover,
+.search-btn:focus{
+    color: white;
+    background-color: var(--clr-primary);
+}
+
+@media screen and (min-width: 750px){
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        max-width: 85vw;
+        margin: 0 auto;
+    }
+
+    .search-container{
+        width: 70%;
+    }
+    
+    .filter-container{
+        width: 70%;
+    }
+
+    #nav-content{
+        flex-direction: row;
+        height: auto;
+        width:100%;
+        position: static;
+        padding-top: 0px;
+        box-shadow: none;
+    }
+
+    .open_nav{
+        display:none;
+    }
+    .close_nav{
+        display:none;
+    }
+    
+}
