@@ -203,5 +203,69 @@ Student.findById("56e711a9e1b0f9080f7a5621", function(err, stu) {
 });
 */
 
+router.get('/fetch',async (req,res)=>{
+    const CLIENT_ID = process.env.CLIENT_ID;
+    const CLIENT_SECRET = process.env.CLIENT_SECRET;
+    const grant_type = 'client_credentials';
+
+    let tokenUrl = `https://id.twitch.tv/oauth2/token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=${grant_type}`
+    let access_token ='';
+    let timeout;
+
+    
+    let options = {
+        method: 'POST',
+    }
+
+    try{
+        let response = await fetch(tokenUrl, options)
+        let data = await response.json()
+        console.log(data);
+        access_token = data.access_token;
+        timeout = data.expires_in
+        console.log(access_token)
+        console.log(timeout)
+    }
+    catch(error){
+        console.log(error)
+    }
+
+    
+
+
+
+    if(access_token == ''){
+        console.log("no access token")
+    }
+
+    let url = 'https://api.igdb.com/v4/games';
+    const date = new Date('2019-1-1');
+    console.log(date)
+    let data = "fields *; where platforms = 48 & release_dates < 1538129354; sort release_dates desc;";
+    let options2 = {
+        method: 'POST',
+        mode: 'cors',
+        headers:{
+            'Client-ID': CLIENT_ID,
+            'Authorization': 'Bearer '+access_token,
+            'Accept': 'application/json',
+            'Content-Type': 'text/plain'
+        },
+        body: data
+    }
+    
+    try{
+        let response = await fetch(url,options2);
+        let data = await response.json();
+        res.send(data);
+    }
+    catch(error){
+        console.log(error);
+        res.send(error);
+    }
+
+    
+
+});
 
 module.exports = router;

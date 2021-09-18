@@ -39,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/popular', indexRouter);
 app.use('/deleteAll', indexRouter);
 app.use('/fetchData', indexRouter);
+app.use('/fetch', indexRouter);
 app.use('/games/id', indexRouter);
 app.use('/search', searchRouter);
 app.use('/platform', platformsRouter);
