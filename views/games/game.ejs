@@ -23,7 +23,7 @@
                       <!-- find first complete sentence after 150 characters, then add ellipsis and then "read more" link which redirects to the description section-->
                       <%let description =  game.description.slice(0,game.description.indexOf(" ", 150));%>
                       <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                      <%=description%>...<a href="#about">read more</a>
+                      <p><%-description%>...<a href="#about">read more</a></p>
                   </div>
 
                   <div class="hero-genres">
@@ -73,42 +73,40 @@
           </ul>
       </div>
 
-      <div class="sub-content">
-        <section id="details-container">
-            <div id="screenshots-container">
-                <h2>Screenshots</h2>
-                <div class="screenshots">
-  
-                </div>
-            </div>
-            
-            <div id="about">
-                <h2>Description</h2> 
-                <p class="about_description container">
-                    <%-game.description%>
-                </p>
-            </div>
-            
-            <div id="details">
-                <h2>Additional Information</h2>
-                <div class="info container">
-                    <div class="stores-container">
-                        <h4>Stores</h4>
-                        <div class="stores"> Steam, PS, Xbox</div>
-                    </div>
-                    <div class="publishers-container">
-                        <h4>Publishers</h4>
-                        <div class="publishers">
-                            <%for(publishers of game.publishers){%>
-                              <span><%=publishers.publishers%></span>
-                            <%}%>
-                          </div>
-                    </div>
-                    <div class="developers-container">
-                        <h4>Developers</h4>
-                        <div class="developer"> 
-                          <%for(developer of game.developers){%>
-                              <span><%=developer.developers%></span>
+      <section id="details-container">
+          <h2></h2>
+          <div id="screenshots-container">
+              <h2>Screenshots</h2>
+              <div class="screenshots">
+
+              </div>
+          </div>
+          
+          <div id="about">
+              <h2>Description</h2> 
+              <div class="about_description container">
+                  <%-game.description%>
+              </div>
+          </div>
+          
+          <div id="details">
+              <h2>Additional Information</h2>
+              <div class="info container">
+                  <div class="stores-container">
+                      <h4>Stores</h4>
+                      <div class="stores">
+                          <% console.log(game)%>
+                          <%for(store of game.stores){%>
+                            <!--u can get the domain by store.domain-->
+                            <span><%=store.store.name%></span>
+                          <%}%>
+                      </div>
+                  </div>
+                  <div class="publishers-container">
+                      <h4>Publishers</h4>
+                      <div class="publishers">
+                          <%for(publishers of game.publishers){%>
+                            <span><%=publishers%></span>
                           <%}%>
                           </div>
                     </div>
