@@ -10,12 +10,19 @@ const gameSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
-    genres: [  ], 
+    genres: [ ], 
     background_img: {type: String}, 
+    images: [ ],
     description: {type: String},
-    platform: [  ],
+    reddit_description: {type: String},
+    platform: [ ],
     rating: {type: Number},
-    release_Date: {type: Date}
+    release_Date: {type: Date},
+    website: {type: String},
+    redditUrl:  {type: String},
+    stores: [ ],
+    publishers: [ ],
+    developers: [ ]
 });
 
 module.exports = mongoose.model("Game", gameSchema);

@@ -1,0 +1,171 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.main_container{
+  display: grid;
+  grid-template-columns: auto;
+  background-color: rgb(202, 202, 202);
+  text-align: left;
+}
+
+.hero-container{
+  padding: 0;
+}
+
+#hero-main{
+  background-image: linear-gradient(rgba(22, 100, 124, 0.5), rgba(0, 0, 0, 0.5)), url("https://media.rawg.io/media/games/1f4/1f47a270b8f241e4676b14d39ec620f7.jpg");
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-content{
+  display:flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 5%;
+  padding: 0 1em;
+  width: 100%;
+}
+
+.hero-title{
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-bottom: 0.5em;
+  font-family:var(--ff-title)
+}
+
+.hero-decription{
+  font-size: 1rem;
+  font-family: var(--ff-serif);
+  line-height:1.5;
+  font-weight:300;
+  width: 50%;
+}
+
+.hero-genres{
+  margin: 20px;
+}
+
+.genres-list{
+  list-style: disc;
+}
+
+.genres-list li,
+#selection-menu ul li{
+  display: inline-block;
+  padding: 10px;
+}
+
+
+.sub-container{
+  display:flex;
+  justify-content: space-between;
+}
+
+.sub-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8em;
+}
+
+.hero-rating{
+  border: 2px solid rgba(0, 225, 255, 0.575);
+  border-radius: 1.3em;
+  padding: 0.8em;
+}
+
+.play-btn{
+  width: fit-content;
+  cursor: pointer;
+  border: 3px solid rgba(0, 225, 255, 0.575);
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  font-family: var(--ff-serif);
+}
+
+#selection-menu{
+  background-color: #333;
+  padding: 0 1em;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+#selection-menu a{
+  text-decoration: none;
+  color: white;
+  padding: 1em;
+}
+
+#selection-menu ul{
+  padding: 0.8em;
+}
+
+#selection-menu ul a:hover{
+  border-bottom: 2px solid greenyellow;
+}
+
+.container{
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+  margin-top: 1em;
+  padding: 1em;
+}
+
+#about, #details, #screenshots-container{
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: 100%;
+}
+
+#details > div{
+  margin-bottom: 1em;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+}
+
+.info > div{
+  padding: 1em;
+}
+
+#reviews{
+  background-color: khaki;
+}
+
+@media screen and (min-width: 750px){
+  #hero-main{
+    height: 70vh;
+  }
+
+  #selection-menu ul{
+    width: 80vw; 
+    margin: 0 auto;
+  }
+
+  #details-container{
+    width: 80vw;
+    margin: 2em auto;
+    padding: 1em;
+  }
+
+  .info{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+  }
+
+}

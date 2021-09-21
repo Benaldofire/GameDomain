@@ -1,0 +1,153 @@
+<% 
+  //get a short description of the game. Basically the first full stop. However if its too long then cut it short. 
+  //(game.description).slice(0,(game.description).indexOf("."))
+  //let xo = game.description;
+  //let description =  xo.slice(0,xo.indexOf(" ", 150));
+  //we want to get the first 150 characters but we dont want to end in the middle of a word. so we get the index of the first space char after 150 characters
+%>
+<body>
+  <div class="main_container">
+          <!-- 
+          We have 3 sections
+          The main hero page: this has the main background image of the game with title and brief description, consoles etc
+          Details: This displays the indept details of the game: E.g where to buy the game, Screenshots, producers, rating, system requirements etc
+          Reviews: allow users to input reviews 
+      -->
+      <section class="hero-container">
+          <div id="hero-main" style="background-image: linear-gradient(rgba(22, 100, 124, 0.5), rgba(0, 0, 0, 0.5)),url(<%=game.background_img%>);">
+              <div class="hero-content">
+                  <div class="hero-title">
+                      <h1><%=game.name%></h1> 
+                  </div> 
+                  <div class="hero-decription">
+                      <!-- find first complete sentence after 150 characters, then add ellipsis and then "read more" link which redirects to the description section-->
+                      <%let description =  game.description.slice(0,game.description.indexOf(" ", 150));%>
+                      <!-- change the style of the "read more" to blue not underlined unless hovered over-->
+                      <p><%=description%>...<a href="#about">read more</a></p>
+                  </div>
+
+                  <div class="hero-genres">
+                      <ul class="genres-list">
+                          <!-- just display only the first 3 genres-->
+                        <%for(genre of game.genres){%>
+                            <li><%=genre%></li>
+                        <%}%>
+                      </ul>
+                  </div> 
+                  <div class="sub-container">
+                      <div class="play-btn"><a>Watch Trailer</a></div>
+                        <% let rating = game.rating;
+                        if(rating == '' || rating ==null){
+                            rating = "N/A";
+                        }%>
+                      <div class="hero-rating"> <%=rating%></div>
+                  </div>
+                  
+                  <div class="platforms">
+                    <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                    let playstation = true; 
+                    %>
+                    <%for(platforms of game.platform){%>
+                        <!-- insert image associated with the specific platform-->
+                        <%if(platforms == "Xbox One"){%>
+                            <i class="fab fa-xbox"></i>
+                        <%}%>
+                        <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                            <%playstation = false;%>
+                            <i class="fab fa-playstation"></i>
+                        <%}%>
+                        <%if(platforms == "PC"){%>
+                            <i class="fab fa-windows"></i>
+                        <%}
+                    }%>
+                </div>
+              </div>
+          </div>
+      </section>
+
+      <div id="selection-menu">  
+          <ul>
+              <li> <a href="#about">About</a> </li>
+              <li> <a href="#details">Details</a></li>
+              <li> <a href="#reviews">Reviews</a></li>
+          </ul>
+      </div>
+
+      <section id="details-container">
+          <h2></h2>
+          <div id="screenshots-container">
+              <h2>Screenshots</h2>
+              <div class="screenshots">
+
+              </div>
+          </div>
+          
+          <div id="about">
+              <h2>Description</h2> 
+              <p class="about_description container">
+                  <%-game.description%>
+              </p>
+          </div>
+          
+          <div id="details">
+              <h2>Additional Information</h2>
+              <div class="info container">
+                  <div class="stores-container">
+                      <h4>Stores</h4>
+                      <div class="stores"> Steam, PS, Xbox</div>
+                  </div>
+                  <div class="publishers-container">
+                      <h4>Publishers</h4>
+                      <div class="publishers">
+                          <%for(publishers of game.publishers){%>
+                            <span><%=publishers%></span>
+                          <%}%>
+                        </div>
+                  </div>
+                  <div class="developers-container">
+                      <h4>Developers</h4>
+                      <div class="developer"> 
+                        <%for(developer of game.developers){%>
+                            <span><%=developer%></span>
+                        <%}%>
+                        </div>
+                  </div>
+                  <div>
+                      <h4> Release date</h4> 
+                      <span class="release-date">
+                          <%=game.release_date%>
+                      </span>
+                  </div>
+                  
+                  <div>
+                      <h4>Age rating</h4>
+                      <span class="age-rating"></span>
+                  </div>
+                  <div class="game-links-container">
+                      <h4>Game links</h4>
+                      <div class="game-links">
+                          <span><%=game.website%></span>
+                          <span><%=game.redditUrl%></span>
+                          
+                      </div>
+                  </div>
+                  
+              </div>
+
+              <div id="system-requirements">
+                  <h2>System requirements</h2>
+                  <div class="sys-req container">
+                      
+                  </div>
+              </div>
+          </div>
+
+          
+          
+      </section>
+      <section id="reviews">
+          Reviews
+      </section>
+  </div>
+</body>
+

@@ -343,7 +343,6 @@ header{
 }
 
 footer{
-    margin-top: 2em;
     background: #333;
     padding: 3em 1em;
     color: white;
@@ -388,6 +387,7 @@ footer a{
 
 /*------partials-----*/
 .backgroundClr{
+    padding-bottom: 2em;
     display: grid;
     grid-template-columns: auto;
     margin: 1em;
@@ -496,9 +496,9 @@ footer a{
 @media screen and (min-width: 1920px){
 
     nav{
-        max-width: 1920px;
+        max-width: 85vw;
     }
-
+    
     .games{
         display: grid;
         grid-template-columns: auto auto auto auto;
@@ -506,7 +506,6 @@ footer a{
     
     .featured-main{
         max-width: 1440px;
-        max-height: 760px;
     }
     /*dont want featured image being too big on 1920px screens*/
     #featured-img{
@@ -516,7 +515,6 @@ footer a{
     .backgroundClr{
         max-width: 1920px;
     }
-
 }
 
 

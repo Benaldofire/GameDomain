@@ -50,7 +50,7 @@ router.get('/', async (req,res)=>{
             for(genre of item.genres){
                 genres.push(genre.name);
             }
-
+            //we can try using the update if the id exists, in the db, if not then we create a new one. 
             let game = new Game({
                 id: item.id,
                 name: item.name,
@@ -173,35 +173,6 @@ router.get('/fetchData', async function(req,res){
     }
 });
 
-router.get('/games/:id', async (req,res)=>{
-    //check if the game description is in the database (game.description != Null), 
-    //if it's not then you have to fetch the details from the Raw.io database and then add it to your database and then send it to be rendered
-    console.log("accessed");
-    let game = await Game.find({}).where("id").in(req.params.id);
-    if(game.description == 'N/A'){
-        //fetch data from raw.io
-    }
-    //console.log(game);
-    res.send("Work in Progress");
-    //res.send(games)
-});
-//export the router we created
-
-/*
-// Find the student with this ID
-Student.findById("56e711a9e1b0f9080f7a5621", function(err, stu) {
-   if (stu === null) {
-      console.log("Student not found");
-   }
-   else {
-      // Increase student's GPA and save
-      stu.gpa += 0.1;
-      stu.save(function (err, stu) {
-         console.log("New GPA: " + stu.gpa);
-      });
-   }
-});
-*/
 
 router.get('/fetch',async (req,res)=>{
     const CLIENT_ID = process.env.CLIENT_ID;

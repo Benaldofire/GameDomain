@@ -25,7 +25,8 @@ app.use(express.urlencoded({extended:true}));
 //---------importing routes-----------
 const indexRouter = require('./routes/index');
 const searchRouter = require('./routes/search');
-const platformsRouter = require('./routes/platforms')
+const platformsRouter = require('./routes/platforms');
+const gamesRouter = require('./routes/games');
 
 //---------implement mongoose--------
 const mongoose = require('mongoose');
@@ -40,11 +41,11 @@ app.use('/popular', indexRouter);
 app.use('/deleteAll', indexRouter);
 app.use('/fetchData', indexRouter);
 app.use('/fetch', indexRouter);
-app.use('/games/id', indexRouter);
 app.use('/search', searchRouter);
 app.use('/platform', platformsRouter);
 app.use('/platform/games/filter', platformsRouter);
 app.use('/platform/all/genre', platformsRouter);
+app.use('/games', gamesRouter);
 
 //process.env.PORT will be for when we deploy it. Server will tell us what server it's listening to. 
 const port = process.env.PORT || 3000;
