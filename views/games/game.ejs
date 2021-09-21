@@ -23,7 +23,7 @@
                       <!-- find first complete sentence after 150 characters, then add ellipsis and then "read more" link which redirects to the description section-->
                       <%let description =  game.description.slice(0,game.description.indexOf(" ", 150));%>
                       <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                      <p><%=description%>...<a href="#about">read more</a></p>
+                      <p><%-description%>...<a href="#about">read more</a></p>
                   </div>
 
                   <div class="hero-genres">
@@ -84,9 +84,9 @@
           
           <div id="about">
               <h2>Description</h2> 
-              <p class="about_description container">
+              <div class="about_description container">
                   <%-game.description%>
-              </p>
+              </div>
           </div>
           
           <div id="details">
@@ -94,7 +94,13 @@
               <div class="info container">
                   <div class="stores-container">
                       <h4>Stores</h4>
-                      <div class="stores"> Steam, PS, Xbox</div>
+                      <div class="stores">
+                          <% console.log(game)%>
+                          <%for(store of game.stores){%>
+                            <!--u can get the domain by store.domain-->
+                            <span><%=store.store.name%></span>
+                          <%}%>
+                      </div>
                   </div>
                   <div class="publishers-container">
                       <h4>Publishers</h4>
