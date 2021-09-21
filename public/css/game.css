@@ -18,7 +18,7 @@
 #hero-main{
   background-image: linear-gradient(rgba(22, 100, 124, 0.5), rgba(0, 0, 0, 0.5)), url("https://media.rawg.io/media/games/1f4/1f47a270b8f241e4676b14d39ec620f7.jpg");
   background-size: cover;
-  height: 100vh;
+  height: 70vh;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
@@ -47,11 +47,12 @@
   font-family: var(--ff-serif);
   line-height:1.5;
   font-weight:300;
-  width: 50%;
+  width: 100%;
+  padding-right: 2em;
 }
 
 .hero-genres{
-  margin: 20px;
+  padding: 0.8em 0.8em 0.8em 0;
 }
 
 .genres-list{
@@ -61,7 +62,7 @@
 .genres-list li,
 #selection-menu ul li{
   display: inline-block;
-  padding: 10px;
+  padding: 0.5em 0.5em 0.5em 0;
 }
 
 
@@ -104,7 +105,7 @@
 #selection-menu a{
   text-decoration: none;
   color: white;
-  padding: 1em;
+  padding: 0.8em;
 }
 
 #selection-menu ul{
@@ -115,6 +116,8 @@
   border-bottom: 2px solid greenyellow;
 }
 
+
+
 .container{
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
@@ -122,10 +125,17 @@
   padding: 1em;
 }
 
+#details-container, #reviews{
+  padding: 1em;
+}
+
+#details-container> div{
+  padding-bottom: 2em;
+}
+
 #about, #details, #screenshots-container{
   display: flex;
   flex-direction: column;
-  padding: 1em;
   width: 100%;
 }
 
@@ -142,13 +152,20 @@
   padding: 1em;
 }
 
-#reviews{
+.reviews-content{
   background-color: khaki;
+  width: 100%;
+  height: 3em;
 }
+
+
 
 @media screen and (min-width: 750px){
   #hero-main{
-    height: 70vh;
+    height: 80vh;
+  }
+  .hero-decription{
+    width: 50%;
   }
 
   #selection-menu ul{
@@ -156,15 +173,16 @@
     margin: 0 auto;
   }
 
-  #details-container{
+  #details-container, #reviews{
     width: 80vw;
     margin: 2em auto;
     padding: 1em;
   }
 
+  /*figure out why justify content is not working here*/
   .info{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     justify-content: space-between;
   }
 

@@ -23,7 +23,7 @@
                       <!-- find first complete sentence after 150 characters, then add ellipsis and then "read more" link which redirects to the description section-->
                       <%let description =  game.description.slice(0,game.description.indexOf(" ", 150));%>
                       <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                      <p><%=description%>...<a href="#about">read more</a></p>
+                      <%=description%>...<a href="#about">read more</a>
                   </div>
 
                   <div class="hero-genres">
@@ -73,81 +73,85 @@
           </ul>
       </div>
 
-      <section id="details-container">
-          <h2></h2>
-          <div id="screenshots-container">
-              <h2>Screenshots</h2>
-              <div class="screenshots">
-
-              </div>
-          </div>
-          
-          <div id="about">
-              <h2>Description</h2> 
-              <p class="about_description container">
-                  <%-game.description%>
-              </p>
-          </div>
-          
-          <div id="details">
-              <h2>Additional Information</h2>
-              <div class="info container">
-                  <div class="stores-container">
-                      <h4>Stores</h4>
-                      <div class="stores"> Steam, PS, Xbox</div>
-                  </div>
-                  <div class="publishers-container">
-                      <h4>Publishers</h4>
-                      <div class="publishers">
-                          <%for(publishers of game.publishers){%>
-                            <span><%=publishers%></span>
+      <div class="sub-content">
+        <section id="details-container">
+            <div id="screenshots-container">
+                <h2>Screenshots</h2>
+                <div class="screenshots">
+  
+                </div>
+            </div>
+            
+            <div id="about">
+                <h2>Description</h2> 
+                <p class="about_description container">
+                    <%-game.description%>
+                </p>
+            </div>
+            
+            <div id="details">
+                <h2>Additional Information</h2>
+                <div class="info container">
+                    <div class="stores-container">
+                        <h4>Stores</h4>
+                        <div class="stores"> Steam, PS, Xbox</div>
+                    </div>
+                    <div class="publishers-container">
+                        <h4>Publishers</h4>
+                        <div class="publishers">
+                            <%for(publishers of game.publishers){%>
+                              <span><%=publishers.publishers%></span>
+                            <%}%>
+                          </div>
+                    </div>
+                    <div class="developers-container">
+                        <h4>Developers</h4>
+                        <div class="developer"> 
+                          <%for(developer of game.developers){%>
+                              <span><%=developer.developers%></span>
                           <%}%>
+                          </div>
+                    </div>
+                    <div>
+                        <h4> Release date</h4> 
+                        <span class="release-date">
+                            <%=(game.release_Date.toDateString()).slice(4,game.release_Date.length)%>
+                        </span>
+                    </div>
+                    
+                    <div>
+                        <h4>Age rating</h4>
+                        <span class="age-rating"></span>
+                    </div>
+                    <div class="game-links-container">
+                        <h4>Game links</h4>
+                        <div class="game-links">
+                            <div><a href="<%=game.website%>"> Game website</a></div>
+                            <div><a href="<%=game.redditUrl%>"> Reddit Page</a></div>
                         </div>
-                  </div>
-                  <div class="developers-container">
-                      <h4>Developers</h4>
-                      <div class="developer"> 
-                        <%for(developer of game.developers){%>
-                            <span><%=developer%></span>
-                        <%}%>
-                        </div>
-                  </div>
-                  <div>
-                      <h4> Release date</h4> 
-                      <span class="release-date">
-                          <%=game.release_date%>
-                      </span>
-                  </div>
-                  
-                  <div>
-                      <h4>Age rating</h4>
-                      <span class="age-rating"></span>
-                  </div>
-                  <div class="game-links-container">
-                      <h4>Game links</h4>
-                      <div class="game-links">
-                          <span><%=game.website%></span>
-                          <span><%=game.redditUrl%></span>
-                          
-                      </div>
-                  </div>
-                  
-              </div>
+                    </div>
+                    
+                </div>
+  
+                
+            </div>  
 
-              <div id="system-requirements">
-                  <h2>System requirements</h2>
-                  <div class="sys-req container">
-                      
-                  </div>
-              </div>
-          </div>
+            <div id="system-requirements">
+                <h2>System requirements</h2>
+                <div class="sys-req container">
+                    
+                </div>
+            </div>
+        </section>
+        
+        <section id="reviews">
+            <h2>Reviews</h2>
+            <div class="reviews-content">
 
-          
-          
-      </section>
-      <section id="reviews">
-          Reviews
-      </section>
+            </div>
+        </section>
+      </div>
+      
   </div>
 </body>
 
