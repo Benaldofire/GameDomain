@@ -19,11 +19,11 @@
                   <div class="hero-title">
                       <h1><%=game.name%></h1> 
                   </div> 
-                  <div class="hero-decription">
+                  <div class="hero-description">
                       <!-- find first complete sentence after 150 characters, then add ellipsis and then "read more" link which redirects to the description section-->
                       <%let description =  game.description.slice(0,game.description.indexOf(" ", 150));%>
                       <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                      <p><%-description%>...<a href="#about">read more</a></p>
+                      <%-description%>...<a href="#about" class="hero-more"> Read More</a>
                   </div>
 
                   <div class="hero-genres">
@@ -34,8 +34,29 @@
                         <%}%>
                       </ul>
                   </div> 
+
+                  <div class="play-btn"><a>Watch Trailer</a></div>
+
                   <div class="sub-container">
-                      <div class="play-btn"><a>Watch Trailer</a></div>
+                    <div class="hero-platforms">
+                        <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                        let playstation = true; 
+                        %>
+                        <%for(platforms of game.platform){%>
+                            <!-- insert image associated with the specific platform-->
+                            <%if(platforms == "Xbox One"){%>
+                                <i class="fab fa-xbox"></i>
+                            <%}%>
+                            <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                <%playstation = false;%>
+                                <i class="fab fa-playstation"></i>
+                            <%}%>
+                            <%if(platforms == "PC"){%>
+                                <i class="fab fa-windows"></i>
+                            <%}
+                        }%>
+                    </div>
+
                         <% let rating = game.rating;
                         if(rating == '' || rating ==null){
                             rating = "N/A";
@@ -43,24 +64,7 @@
                       <div class="hero-rating"> <%=rating%></div>
                   </div>
                   
-                  <div class="platforms">
-                    <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
-                    let playstation = true; 
-                    %>
-                    <%for(platforms of game.platform){%>
-                        <!-- insert image associated with the specific platform-->
-                        <%if(platforms == "Xbox One"){%>
-                            <i class="fab fa-xbox"></i>
-                        <%}%>
-                        <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
-                            <%playstation = false;%>
-                            <i class="fab fa-playstation"></i>
-                        <%}%>
-                        <%if(platforms == "PC"){%>
-                            <i class="fab fa-windows"></i>
-                        <%}
-                    }%>
-                </div>
+                    
               </div>
           </div>
       </section>
@@ -95,7 +99,6 @@
                   <div class="stores-container">
                       <h4>Stores</h4>
                       <div class="stores">
-                          <% console.log(game)%>
                           <%for(store of game.stores){%>
                             <!--u can get the domain by store.domain-->
                             <span><%=store.store.name%></span>

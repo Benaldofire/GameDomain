@@ -78,7 +78,8 @@
                         <h4 class="game-title"><%=game.name%></h3>
                         <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                         <div class="game-description">
-                            <p ><%=game.description%></p>
+                            <%let description =  game.description.slice(0,game.description.indexOf(" ", 150));%>
+                            <p ><%-description%></p>...<a href="/games/<%=game.id%>">Visit page</a></p>
                         </div>
                     </div>
                 <%}%>
