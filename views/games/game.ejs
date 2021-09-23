@@ -16,6 +16,7 @@
       <section class="hero-container">
           <div id="hero-main" style="background-image: linear-gradient(rgba(22, 100, 124, 0.5), rgba(0, 0, 0, 0.5)),url(<%=game.background_img%>);">
               <div class="hero-content">
+                <%=(game.release_Date.toDateString()).slice(4,game.release_Date.length)%>
                   <div class="hero-title">
                       <h1><%=game.name%></h1> 
                   </div> 
@@ -39,6 +40,7 @@
 
                   <div class="sub-container">
                     <div class="hero-platforms">
+                        <span>Platforms:</span>
                         <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
                         let playstation = true; 
                         %>
@@ -61,7 +63,11 @@
                         if(rating == '' || rating ==null){
                             rating = "N/A";
                         }%>
-                      <div class="hero-rating"> <%=rating%></div>
+                      
+                      <div> 
+                        Metacritic
+                        <div class="hero-rating"><%=rating%></div>
+                        </div>
                   </div>
                   
                     
@@ -101,18 +107,27 @@
                       <div class="stores">
                           <%for(store of game.stores){%>
                             <!--u can get the domain by store.domain-->
-                            <span><%=store.store.name%></span>
+                            <span class="store"><%=store.store.name%></span>
                           <%}%>
                       </div>
                   </div>
                   <div class="publishers-container">
                       <h4>Publishers</h4>
                       <div class="publishers">
-                          <%for(publishers of game.publishers){%>
-                            <span><%=publishers%></span>
+                          <%for(publisher of game.publishers){%>
+                            <div class="publisher"><%=publisher.name%></div>
                           <%}%>
                           </div>
                     </div>
+
+                    <div class="developers-container">
+                        <h4>Developers</h4>
+                        <div class="developers">
+                            <%for(developer of game.developers){%>
+                              <div class="developer"><%=developer.name%></div>
+                            <%}%>
+                            </div>
+                      </div>
                     <div>
                         <h4> Release date</h4> 
                         <span class="release-date">

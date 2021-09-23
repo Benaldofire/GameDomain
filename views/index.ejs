@@ -8,7 +8,10 @@
                     <img src=<%=popularGames[0].background_img%> alt=<%=popularGames[0].name%> id="featured-img">
                     <div class="text-block">
                         <h4 id="featured_title"><%=popularGames[0].name%></h4>
-                        <div id = "featured_description"><%=popularGames[0].description%></div>
+                        <div id = "featured_description">
+                            <!-- fix the issue with the description in a javascript file-->
+                            <%-popularGames[0].description.slice(0,popularGames[0].description.indexOf(" ", 150));%>...
+                        </div>
                         <div id="featured_rating">
                             <% let rating = popularGames[0].rating;
                             if(rating == '' || rating ==null){
@@ -16,6 +19,7 @@
                             }%>
                             <span><strong>Rating:</strong> <%=rating%> </span>
                         </div>
+                        <a class="btn-small btn-accent featured-btn" href="/games/<%=popularGames[0].id%>">Visit Page</a>
                     </div>
                     <!-- Next and previous buttons -->
                     <a id="prev">❮</a>

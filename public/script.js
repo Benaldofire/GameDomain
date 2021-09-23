@@ -30,6 +30,7 @@ async function featuredImg(){
     //let platforms = document.querySelector("#featured_platforms");
     let rating = document.querySelector("#featured_rating");
     //let genres = document.querySelector("#featured_genres");
+    let btnLink = document.querySelector(".featured-btn")
     function next(){
         currentSlide++;
         //if its end of the list then return to 0 upon press
@@ -39,9 +40,10 @@ async function featuredImg(){
 
         // now change current image and desceiption to the new game
         img.src = games[currentSlide].background_img;
-        desc.textContent = games[currentSlide].description;
+        desc.innerHTML = (games[currentSlide].description).slice(0,games[currentSlide].description.indexOf(".", 150));
         title.textContent = games[currentSlide].name;
         rating.textContent = "Rating: "+games[currentSlide].rating;
+        btnLink.href = `/games/${games[currentSlide].id}`;
         //loop needed for platforms and genres
         let platformsTxt = "Platform(s): ";
         let genreTxt = "Genres: ";
@@ -150,4 +152,3 @@ async function featuredImg(){
 }
 
 featuredImg();
-

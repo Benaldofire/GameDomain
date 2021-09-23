@@ -90,7 +90,8 @@ p{
 
 
 
-/*Homepage styles*/
+/*Homepage styles
+*/
 
 /*Featured section*/
 .featured-container{
@@ -116,11 +117,14 @@ p{
     object-fit: cover;
 }
 
-.featured-container a {
+.btn-small {
+    padding: 0.5em 1.5em;
     display: inline-block;
-    padding: 0.5em;
-    color: var(--clr-primary);
+    font-size: 0.8rem;
+    color: white;
     text-decoration: none;
+    margin: 0.5em 0;
+    border-radius: 0.5em;
 }
 
 
@@ -131,6 +135,7 @@ p{
 }
 
 
+/*Remove the description on mobile view please*/
 .featured-main .text-block {
     position: absolute;
     bottom: 0;
@@ -143,17 +148,13 @@ p{
     font-size: clamp(0.5rem, 3.5vw, 1rem);
     line-height: 1;
     padding: 0.5em;
+    display:none;
 }
 
 .featured-main:hover .text-block{
     opacity: 1;
 }
 
-.featured-container a{
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-}
 
 #prev{
     position: absolute;
@@ -167,6 +168,15 @@ p{
     right:0; 
     border-radius: 10px 0 0 10px;
     top: 40%;
+}
+
+#prev,
+#next{
+    padding: 1em;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    user-select: none;
 }
 
 #prev:hover, #next:hover{
@@ -327,6 +337,16 @@ p{
     border-radius: 0.5em;
 }
 
+.btn-small {
+    padding: 0.5em 1.5em;
+    font-size: 0.8rem;
+    color: white;
+    text-decoration: none;
+    margin: 0.5em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
 .btn-accent{
     background: var(--clr-accent);
 }
@@ -401,6 +421,7 @@ footer a{
 }
 
 
+
 @media screen and (min-width: 750px){
 
     h4{
@@ -426,6 +447,7 @@ footer a{
         margin-bottom: 20px;
     }
 
+    
 
     .column{
         margin: 5px;
@@ -442,16 +464,23 @@ footer a{
         bottom: 20%;
         left: 5%;
         width: 50%;
-        height: 20%;
+        height: fit-content;
         border-radius: 20px;
+        display: block;
         /*font-size: clamp(0.5rem, 3.5vw, 1rem);*/
     }
 
-    .featured-container a{
+    #prev,
+    #next{
         padding: 1em;
         font-weight: bold;
         font-size: 1.5rem;
+        color: white;
+        user-select: none;
     }
+
+    
+
 
     .preview{
         width: 40vw;

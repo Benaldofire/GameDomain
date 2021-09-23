@@ -27,6 +27,8 @@ router.get('/:id', async (req,res)=>{
          game[0].stores = data.stores;
          game[0].publishers = data.publishers;
          game[0].developers = data.developers;
+         game[0].requirements = data.requirements;
+         game[0].esrb_rating = data.esrb_rating.name; 
          console.log("data was fetched");
 
          game[0].save((error, game)=>{

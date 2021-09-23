@@ -22,7 +22,9 @@ const gameSchema = new mongoose.Schema({
     redditUrl:  {type: String},
     stores: [ ],
     publishers: [ ],
-    developers: [ ]
+    developers: [ ],
+    requirements: {},
+    esrb_rating: {type: String}
 });
 
 module.exports = mongoose.model("Game", gameSchema);

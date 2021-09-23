@@ -62,7 +62,7 @@
 }
 
 .hero-platforms{
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .hero-more:hover{
@@ -78,12 +78,6 @@
 #selection-menu ul li{
   display: inline-block;
   padding: 0.5em 0.5em 0.5em 0;
-}
-
-
-.sub-container{
-  display:flex;
-  justify-content: space-between;
 }
 
 .sub-container{
@@ -104,15 +98,22 @@
   cursor: pointer;
   border: 3px solid rgba(0, 225, 255, 0.575);
   border-radius: 30px;
-  padding: 10px;
+  padding: 5px 10px;
   text-align: center;
   font-family: var(--ff-serif);
+  user-select: none; /*prevent users from selecting the text*/
 }
 
 .play-btn:hover{
-  background-color:rgba(31, 80, 255, 0.753);
+  background-color:rgba(41, 86, 248, 0.753);
   border: 3px solid rgba(255, 255, 255, 0.808);
 
+}
+
+.play-btn:active {
+  background-color: rgb(31, 80, 255);;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 #selection-menu{
@@ -173,6 +174,31 @@
   padding: 1em;
 }
 
+
+.developers, 
+.publishers,
+.stores{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+/*put a comma after each genre
+The element1~element2 selector matches occurrences of element2 that are preceded by element1
+*/
+.developer~.developer::before,
+.publisher~.publisher::before,
+.store~.store::before{
+    content: ", ";
+}
+
+.game-links-container a{
+  text-decoration: none;
+}
+
+
+
+
+
 .reviews-content{
   background-color: khaki;
   margin-top: 1em;
@@ -196,6 +222,10 @@
 
   .hero-genres{
     padding: 0.8em 0.8em 0.8em 0;
+  }
+
+  .sub-container{
+    margin: 0;
   }
 
   #selection-menu ul{
