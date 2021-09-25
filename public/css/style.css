@@ -292,7 +292,10 @@ p{
 .game-description{
     transition: 0.5s ease;
     opacity: 0;
+    width: 100%;
     top: 50%;
+    left:0;
+    padding: 1em;
     transform: translateY(-50%);
     position: absolute;
     text-align: center;
@@ -303,7 +306,7 @@ p{
     font-size: 1rem;
     display: inline;
     padding: 0;
-    margin: 0;
+    margin: auto;
 }
 
 /*Change, all the h1, p, span etc to default once the description is optained from the api*/
