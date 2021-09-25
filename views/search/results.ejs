@@ -5,30 +5,56 @@
             <div class="game">
                 <h4 class="game-title"><%=game.name%></h3>
                 <img src=<%=game.background_img%> alt=<%=game.name%> class="games_img_smaller">
-                <div class="game-description">
-                    <p ><%=game.description%></p>
-                </div>
-                <div class="genres">
-                    <span><strong>Genres:</strong></span>
-                    <%for(genre of game.genres){%>
-                        <li style="display: inline-block;"><%=genre%></li>,
-                    <%}%>
-                </div>
-                <div class="platforms">
-                    <span><strong>Platform(s):</strong></span>
-                    <%for(platforms of game.platform){%>
-                        <li style="display: inline-block;"><%=platforms%></li>,
-                    <%}%>
-                </div>
-                <div>
-                    <% let rating = game.rating;
-                    if(rating == '' || rating ==null){
-                        rating = "N/A";
-                    }%>
-                    <span><strong>Rating: </strong><%=rating%> </span>
-                </div>
-                <div>
-                    <span><strong>Release Date:</strong> <%=game.release_Date%> </span>
+                <div class="content-container">
+                    <div class="game-description">
+                        <div>
+                            <%
+                            let description =  game.description.slice(0,game.description.indexOf("</p>"));
+                              if(description.length > 150){
+                                  description = game.description.slice(0,game.description.indexOf(" ", 150))+"...";
+                              }
+                            %>
+                            <!-- change the style of the "read more" to blue not underlined unless hovered over-->
+                            <%-description%><a href="/games/<%=game.id%>" class="hero-more"> Read More</a>
+                            <a class="btn-small btn-accent" href="/games/<%=game.id%>">Visit Page</a></div>
+                        </div>
+                    <div class="genres">
+                        <span class="genre-title"><strong>Genres:</strong></span>
+                        <!-- put the display in the css file-->
+                        <%for(genre of game.genres){%>
+                            <li class="genre_list"><%=genre%></li>
+                        <%}%>
+                    </div>
+                    <div class="platforms">
+                        <span><strong>Platform(s):</strong></span>
+                        <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                        let playstation = true; 
+                        %>
+                        <%for(platforms of game.platform){%>
+                            <!-- insert image associated with the specific platform-->
+                            <%if(platforms == "Xbox One"){%>
+                                <i class="fab fa-xbox"></i>
+                            <%}%>
+                            <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                <%playstation = false;%>
+                                <i class="fab fa-playstation"></i>
+                            <%}%>
+                            <%if(platforms == "PC"){%>
+                                <i class="fab fa-windows"></i>
+                            <%}
+                        }%>
+                    </div>
+                    <div>
+                        <% let rating = game.rating;
+                        if(rating == '' || rating ==null){
+                            rating = "N/A";
+                        }%>
+                        <span><strong>Rating: </strong><%=rating%> </span>
+                    </div>
+                    <div>
+                        <!--new Date(game.release_Date).toISOString().split('T')[0]-->
+                        <span><strong>Release Date:</strong> <%=(game.release_Date.toDateString()).slice(4,game.release_Date.length)%> </span>
+                    </div>
                 </div>
             </div>
         <%}%>

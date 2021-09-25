@@ -195,9 +195,23 @@ The element1~element2 selector matches occurrences of element2 that are preceded
   text-decoration: none;
 }
 
+/*ensure the /n - new line is rendered as intended*/
+.sys-req{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
 
+.sys-req > div {
+  white-space:pre;
+  padding: 0 2em 2em 0;
+  width: 50%;
+ }
 
-
+/*after working on everything else then work on this last*/
+#reviews{
+  display: none;
+}
 
 .reviews-content{
   background-color: khaki;
@@ -209,6 +223,8 @@ The element1~element2 selector matches occurrences of element2 that are preceded
 
 
 @media screen and (min-width: 750px){
+  
+
   #hero-main{
     height: 80vh;
   }
@@ -246,4 +262,7 @@ The element1~element2 selector matches occurrences of element2 that are preceded
     justify-content: space-between;
   }
 
+  .sys-req{
+    flex-direction: row;
+  }
 }

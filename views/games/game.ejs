@@ -22,9 +22,14 @@
                   </div> 
                   <div class="hero-description">
                       <!-- find first complete sentence after 150 characters, then add ellipsis and then "read more" link which redirects to the description section-->
-                      <%let description =  game.description.slice(0,game.description.indexOf(" ", 150));%>
+                      <%
+                      let description =  game.description.slice(0,game.description.indexOf("</p>"));
+                        if(description.length > 150){
+                            description = game.description.slice(0,game.description.indexOf(" ", 150))+"...";
+                        }
+                      %>
                       <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                      <%-description%>...<a href="#about" class="hero-more"> Read More</a>
+                      <%-description%><a href="#about" class="hero-more"> Read More</a>
                   </div>
 
                   <div class="hero-genres">
@@ -137,13 +142,13 @@
                     
                     <div>
                         <h4>Age rating</h4>
-                        <span class="age-rating"></span>
+                        <span class="age-rating"><%=game.esrb_rating%></span>
                     </div>
                     <div class="game-links-container">
                         <h4>Game links</h4>
                         <div class="game-links">
-                            <div><a href="<%=game.website%>"> Game website</a></div>
-                            <div><a href="<%=game.redditUrl%>"> Reddit Page</a></div>
+                            <div><a href="<%-game.website%>"> Game website</a></div>
+                            <div><a href="<%-game.redditUrl%>"> Reddit Page</a></div>
                         </div>
                     </div>
                     
@@ -156,6 +161,8 @@
                 <h2>System requirements</h2>
                 <div class="sys-req container">
                     
+                    <div><%-game.minimumRequirement%></div>
+                    <div><%=game.recommendedRequirement%></div>
                 </div>
             </div>
         </section>

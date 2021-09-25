@@ -3,8 +3,8 @@
     --clr-text: #464545;
     --clr-primary: #067E0A;
     --clr-primary-dark: #065009;
-    --clr-accent: #764981;
-    --clr-accent-dark: #60366b;
+    --clr-accent: #171717;
+    --clr-accent-dark: rgba(30, 29, 31, 0.842);
 
     --ff-title: 'Fira Sans', sans-serif;;
     --ff-serif: 'Mukta', sans-serif;
@@ -117,15 +117,6 @@ p{
     object-fit: cover;
 }
 
-.btn-small {
-    padding: 0.5em 1.5em;
-    display: inline-block;
-    font-size: 0.8rem;
-    color: white;
-    text-decoration: none;
-    margin: 0.5em 0;
-    border-radius: 0.5em;
-}
 
 
 .featured .section-title{
@@ -140,21 +131,22 @@ p{
     position: absolute;
     bottom: 0;
     background: rgb(0, 0, 0); /* Fallback color */
-    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    background: rgba(0, 0, 0, 0.226); /* Black background with 0.5 opacity */
     color: #f1f1f1;
     width: 100%;
     transition: 0.5s ease;
-    opacity: 0;
+    opacity: 1;
     font-size: clamp(0.5rem, 3.5vw, 1rem);
     line-height: 1;
     padding: 0.5em;
-    display:none;
+    /*display:none;*/
 }
 
+/*
 .featured-main:hover .text-block{
     opacity: 1;
 }
-
+*/
 
 #prev{
     position: absolute;
@@ -301,8 +293,10 @@ p{
     transition: 0.5s ease;
     opacity: 0;
     top: 50%;
+    transform: translateY(-50%);
     position: absolute;
     text-align: center;
+    vertical-align: center;
 }
 
 .game-description > *{
@@ -428,6 +422,11 @@ footer a{
         font-size: 1.25rem;
     }
 
+    #featured_title{
+        font-size: clamp(0.5rem, 3.5vw, 1.9rem);
+        font-weight: 400;
+    }
+    
     .backgroundClr{
         max-width: 85vw;
         margin: 0 auto;
@@ -461,13 +460,12 @@ footer a{
     }
 
     .featured-main .text-block {
-        bottom: 20%;
+        bottom: 10%;
         left: 5%;
         width: 50%;
         height: fit-content;
-        border-radius: 20px;
         display: block;
-        /*font-size: clamp(0.5rem, 3.5vw, 1rem);*/
+        font-size: clamp(0.5rem, 3.5vw, 1.4rem);
     }
 
     #prev,

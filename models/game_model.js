@@ -23,7 +23,8 @@ const gameSchema = new mongoose.Schema({
     stores: [ ],
     publishers: [ ],
     developers: [ ],
-    requirements: {},
+    minimumRequirement: {type: String},
+    recommendedRequirement: {type: String},
     esrb_rating: {type: String}
 });
 
