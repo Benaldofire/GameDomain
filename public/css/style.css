@@ -33,11 +33,8 @@ body{
 }
 
 
-img{
     /*always do this for images, to get it to fit the page and also to remnove the extra spage underneath images*/
-    display:block;
-    max-width: 100%;
-}
+
 
 section{
     padding: 3em 1em;
@@ -198,6 +195,8 @@ a{
 .column > img{
     height: 53px;
     object-fit: cover;
+    display: block;
+    max-width: 100%;
 }
 
 .active,
@@ -237,6 +236,12 @@ a{
     transform: scale(1);
     transition: transform 250ms ease-in-out;
 }
+
+.category-img{
+    display:block;
+    max-width: 100%;
+}
+
 .category:hover,
 .category:focus{
     transform: scale(1.05);
@@ -290,6 +295,8 @@ a{
 .game_img{
     width: 360px;
     height: 480px;
+    display:block;
+    width: 100%;
     object-fit: cover;
     opacity: 1;
     transition: 0.5s;

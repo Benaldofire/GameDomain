@@ -5,7 +5,7 @@
 }
 
 .carousel{
-  width: 100%;
+  max-width: 90vw;
   margin: 0 auto;
   padding: 1em;
   background-color: aliceblue;
@@ -28,12 +28,12 @@
 }
 
 .carousel__slide{
-  padding: 1em;
+  padding: 1em 1em 1em 0;
 }
 
 .carousel__image{
+  width: 260px;
   height: 180px;
-  width: 360px;
   object-fit: cover;
   cursor: pointer;
 }
