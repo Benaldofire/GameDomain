@@ -72,6 +72,11 @@ p{
     margin-bottom: 0.85em;
 }
 
+a{
+    text-decoration: none;
+}
+
+
 .text-primary{
     color: var(--clr-primary);
 }
@@ -82,9 +87,11 @@ p{
 }
 
 .logo a{
-    text-decoration: none;
+    
     color: rgb(255, 255, 255);
 }
+
+
 
 /*navigation - navigation.css*/
 
@@ -316,10 +323,12 @@ p{
 .game:hover .game-description,
 .game:hover .game-description{
     opacity: 1;
+
 }
 
 .game:hover img{
     opacity: 0.3;
+
 }
 
 .view-more{

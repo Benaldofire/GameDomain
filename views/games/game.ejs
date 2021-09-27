@@ -93,7 +93,30 @@
           <div id="screenshots-container">
               <h2>Screenshots</h2>
               <div class="screenshots">
-
+                <div class="carousel">
+                    <div class="carousel__track-container">
+                        <!--Everything in the carousel__track will be done with JS
+                        we will have a link in there so that we can click on it
+                        -->
+                        <ul class="carousel__track">
+                            <%for(screenshot of game.screenshots){%>
+                                <li class="carousel__slide">
+                                    <img class="carousel__image" src="<%=screenshot%>" alt="<%=game.name%> image">
+                                </li>
+                            <%}%>
+                        </ul>
+                    </div>
+                    <button class="carousel__button carousel__button--prev"> < </button>
+                    <button class="carousel__button carousel__button--next"> > </button>
+            
+                    <!--Slide indicators-->
+                    <div class="carousel__nav">
+                        <!-- buttons will be done dynmically with js, each image gets an indicator-->
+                        <%for(screenshot of game.screenshots){%>
+                            <button class="carousel__indicator"></button>
+                        <%}%>
+                    </div>
+                </div>
               </div>
           </div>
           
@@ -160,9 +183,8 @@
             <div id="system-requirements">
                 <h2>System requirements</h2>
                 <div class="sys-req container">
-                    
-                    <div><%-game.minimumRequirement%></div>
-                    <div><%=game.recommendedRequirement%></div>
+                    <div class="sys-description"><%-game.minimumRequirement%></div>
+                    <div class="sys-description"><%=game.recommendedRequirement%></div>
                 </div>
             </div>
         </section>
@@ -177,4 +199,5 @@
       
   </div>
 </body>
+<script src="/js/gameCarousel.js"></script>
 

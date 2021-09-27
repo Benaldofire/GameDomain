@@ -22,7 +22,7 @@ router.get('/', async (req,res)=>{
         console.log("need to fetch");
     }
     /*
-    //PC id = 4, PS5 id =  187, ps4 id = 18, Xbox Series S/X id = 186, Xbox One id = 1
+    //PC id = 4, PS5 id =  187, ps4 id = 18, Xbox Series S/X id = 186, Xbox One id = 1Nintendo Switch = 7.
         1.First use the fetch API and get all games data from RAWG 
         2. then add the data to the database
         3. then send the data to the home/index page
@@ -31,12 +31,23 @@ router.get('/', async (req,res)=>{
     */
    //1.First use the fetch API and get the data from RAWG
     const API_KEY = process.env.API_KEY;
-    
+    let page = 1;
     if(fetchData){
-        const url = "https://api.rawg.io/api/games?key="+API_KEY+"&dates=2020-01-01,2021-12-31&platforms=186,187,18,1,7&ordering=-added&page_size=50";
+        const url = "https://api.rawg.io/api/games?key="+API_KEY+"&dates=2020-01-01,2021-12-31&platforms=186,187,18,1,7&ordering=-added&page="+page+"&page_size=50";
         const rawgResponse = await fetch(url);
         const data = await rawgResponse.json();
-
+        /* Used in the final version
+            get 5 pages worth of games.
+            any other games will have to be obtained by making individual requests to the rawg API. 
+             e.g Searching for games or going to next page to find more games, will require us to make a request to the rawg API. 
+        while(data.next != null || data.next != "" && page < 5){
+            const rawgResponse = await fetch(data.next);
+            const data = await rawgResponse.json();
+            page++;
+            //storing data into database
+        }
+        */
+       
         for(item of data.results){
             //2. store each data into the database schema
 
@@ -50,11 +61,23 @@ router.get('/', async (req,res)=>{
             for(genre of item.genres){
                 genres.push(genre.name);
             }
+            let screenshots = [];
+            for(screenshot of item.short_screenshots){
+                screenshots.push(screenshot.image);
+            }
+            let tags = [];
+            for(tag of item.tags){
+                if(tag.language = "eng"){
+                    tags.push(tag.name)
+                }
+            }
             //we can try using the update if the id exists, in the db, if not then we create a new one. 
             let game = new Game({
                 id: item.id,
                 name: item.name,
+                screenshots: screenshots,
                 genres: genres, 
+                tags: tags,
                 rating: item.metacritic,
                 background_img: item.background_image, 
                 description: "N/A",

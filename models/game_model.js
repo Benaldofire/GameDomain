@@ -11,8 +11,9 @@ const gameSchema = new mongoose.Schema({
         required: true
     },
     genres: [ ], 
+    tags:[ ], //Use RegEx to get english tags
     background_img: {type: String}, 
-    images: [ ],
+    screenshots: [ ],
     description: {type: String},
     reddit_description: {type: String},
     platform: [ ],

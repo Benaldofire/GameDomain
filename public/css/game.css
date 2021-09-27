@@ -107,7 +107,6 @@
 .play-btn:hover{
   background-color:rgba(41, 86, 248, 0.753);
   border: 3px solid rgba(255, 255, 255, 0.808);
-
 }
 
 .play-btn:active {
@@ -202,10 +201,9 @@ The element1~element2 selector matches occurrences of element2 that are preceded
   justify-content: left;
 }
 
-.sys-req > div {
-  white-space:pre;
+.sys-description {
+  white-space: pre-wrap;
   padding: 0 2em 2em 0;
-  width: 50%;
  }
 
 /*after working on everything else then work on this last*/
@@ -265,4 +263,8 @@ The element1~element2 selector matches occurrences of element2 that are preceded
   .sys-req{
     flex-direction: row;
   }
+
+  .sys-description {
+    width: 50%;
+   }
 }

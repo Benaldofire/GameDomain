@@ -1,0 +1,82 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding:0;
+}
+
+.carousel{
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: aliceblue;
+  position: relative;
+}
+
+.carousel__track-container{
+  height: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel__track{
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  width:100%;
+  height: 200px;
+  transition: transform 500ms ease-in-out;
+}
+
+.carousel__slide{
+  padding: 1em;
+}
+
+.carousel__image{
+  height: 180px;
+  width: 360px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/*Move the navigation buttons*/
+.carousel__button{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.473);
+  cursor: pointer;
+  color: white;
+  border-radius: 50%;
+  padding: 0.8em 1em;
+  border: none;
+}
+.carousel__button:hover{
+  background-color: rgba(0, 0, 0, 0.836);
+}
+
+.carousel__button--prev{
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel__button--next{
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel__nav{
+  padding:1em;
+  text-align: center;
+}
+.carousel__indicator{
+  background-color: rgba(0, 0, 0, 0.473);
+  border-radius: 50%;
+  padding: 1em;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.carousel__indicator.current-slide{
+  background-color: rgba(0, 0, 0, 0.863);
+}

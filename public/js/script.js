@@ -1,14 +1,4 @@
 
-//slice titles that are too large to fit on one row
-var gameTitle = document.getElementsByClassName("game-title");
-for(let i =0; i < gameTitle.length; i++){
-    let idealTitle = gameTitle[i].textContent.slice(0,32)+"...";
-    if(gameTitle[i].textContent.length > 35){
-        gameTitle[i].innerHTML = idealTitle;
-    }
-}
-
-
 /*
 -----------ISSUES FIX ASAP--------------------
 when you click on the preview below, it doesnt update the rating
@@ -40,9 +30,9 @@ async function featuredImg(){
 
         // now change current image and desceiption to the new game
         img.src = games[currentSlide].background_img;
-        desc.innerHTML = (games[currentSlide].description).slice(0,games[currentSlide].description.indexOf(".", 150));
+        //desc.innerHTML = (games[currentSlide].description).slice(0,games[currentSlide].description.indexOf(".", 150));
         title.textContent = games[currentSlide].name;
-        rating.textContent = "Rating: "+games[currentSlide].rating;
+        //rating.textContent = "Rating: "+games[currentSlide].rating;
         btnLink.href = `/games/${games[currentSlide].id}`;
         //loop needed for platforms and genres
         let platformsTxt = "Platform(s): ";

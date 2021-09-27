@@ -74,25 +74,25 @@
             <div class="categories flex">
                 <div class="category">
                     <a href="#Shooter">
-                        <img src="img/first person shooter.jpg" alt="Shooter">
+                        <img class = "category-img" src="img/first person shooter.jpg" alt="Shooter">
                         <h4 class="category-title">Shooter</h4>
                     </a>
                 </div>
                 <div class="category">
                     <a href="#Role-Playing-games">
-                        <img src="img/RPG.jpg" alt="Role-Playing Game">
+                        <img class = "category-img" src="img/RPG.jpg" alt="Role-Playing Game">
                         <h4 class="category-title">Role-Playing Game</h4>
                     </a>
                 </div>
                 <div class="category">
                     <a href="#action">
-                        <img src="img/action.jpg" alt="Action games">
+                        <img class = "category-img" src="img/action.jpg" alt="Action games">
                         <h4 class="category-title">Action games</h4>
                     </a>
                 </div>
                 <div class="category">
                     <a href="#battle-royale">
-                        <img src="img/Battle Royal.jpg" alt="Battle Royale">
+                        <img class = "category-img" src="img/Battle Royal.jpg" alt="Battle Royale">
                         <h4 class="category-title">Battle Royale</h4>
                     </a>
                 </div>
@@ -108,41 +108,34 @@
             <div class="games flex">
                 <!--for each game, generate a div container for it-->
                 <% for(game of fpsGames){%> 
-                    <div class="game">
-                        <h4 class="game-title"><%=game.name%></h3>
-                        <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
-                        <div class="game-description">
-                            <!-- fix the issue with the description in a javascript file-->
-                            <%
-                            let description =  game.description.slice(0,game.description.indexOf("</p>"));
-                              if(description.length > 150){
-                                  description = game.description.slice(0,popularGames[0].description.indexOf(" ", 150))+"...";
-                              }
-                            %>
-                            <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                            <%-description%><a href="/games/<%=game.id%>" class="hero-more"> Read More</a>
-
-                            <div class="platforms">
-                                <span><strong>Platform(s):</strong></span>
-                                <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
-                                let playstation = true; 
-                                %>
-                                <%for(platforms of game.platform){%>
-                                    <!-- insert image associated with the specific platform-->
-                                    <%if(platforms == "Xbox One"){%>
-                                        <i class="fab fa-xbox"></i>
-                                    <%}%>
-                                    <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
-                                        <%playstation = false;%>
-                                        <i class="fab fa-playstation"></i>
-                                    <%}%>
-                                    <%if(platforms == "PC"){%>
-                                        <i class="fab fa-windows"></i>
-                                    <%}
-                                }%>
+                    <a href="/games/<%=game.id%>">
+                        <div class="game">
+                            <h4 class="game-title"><%=game.name%></h3>
+                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
+                            <div class="game-description">
+                                <!-- fix the issue with the description in a javascript file-->
+                                <div class="platforms">
+                                    <span><strong>Platform(s):</strong></span>
+                                    <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                                    let playstation = true; 
+                                    %>
+                                    <%for(platforms of game.platform){%>
+                                        <!-- insert image associated with the specific platform-->
+                                        <%if(platforms == "Xbox One"){%>
+                                            <i class="fab fa-xbox"></i>
+                                        <%}%>
+                                        <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                            <%playstation = false;%>
+                                            <i class="fab fa-playstation"></i>
+                                        <%}%>
+                                        <%if(platforms == "PC"){%>
+                                            <i class="fab fa-windows"></i>
+                                        <%}
+                                    }%>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>            
+                    </a>
                 <%}%>
             </div>
 
@@ -158,41 +151,34 @@
             </header>
             <div class="games flex">
                 <% for(game of rpgGames){%> 
-                    <div class="game">
-                        <h4 class="game-title"><%=game.name%></h3>
-                        <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
-                        <div class="game-description">
-                            <!-- fix the issue with the description in a javascript file-->
-                            <%
-                            let description =  game.description.slice(0,game.description.indexOf("</p>"));
-                              if(description.length > 150){
-                                  description = game.description.slice(0,popularGames[0].description.indexOf(" ", 150))+"...";
-                              }
-                            %>
-                            <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                            <%-description%><a href="/games/<%=game.id%>" class="hero-more"> Read More</a>
-
-                            <div class="platforms">
-                                <span><strong>Platform(s):</strong></span>
-                                <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
-                                let playstation = true; 
-                                %>
-                                <%for(platforms of game.platform){%>
-                                    <!-- insert image associated with the specific platform-->
-                                    <%if(platforms == "Xbox One"){%>
-                                        <i class="fab fa-xbox"></i>
-                                    <%}%>
-                                    <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
-                                        <%playstation = false;%>
-                                        <i class="fab fa-playstation"></i>
-                                    <%}%>
-                                    <%if(platforms == "PC"){%>
-                                        <i class="fab fa-windows"></i>
-                                    <%}
-                                }%>
+                    <a href="/games/<%=game.id%>">
+                        <div class="game">
+                            <h4 class="game-title"><%=game.name%></h3>
+                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
+                            <div class="game-description">
+                                <!-- fix the issue with the description in a javascript file-->
+                                <div class="platforms">
+                                    <span><strong>Platform(s):</strong></span>
+                                    <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                                    let playstation = true; 
+                                    %>
+                                    <%for(platforms of game.platform){%>
+                                        <!-- insert image associated with the specific platform-->
+                                        <%if(platforms == "Xbox One"){%>
+                                            <i class="fab fa-xbox"></i>
+                                        <%}%>
+                                        <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                            <%playstation = false;%>
+                                            <i class="fab fa-playstation"></i>
+                                        <%}%>
+                                        <%if(platforms == "PC"){%>
+                                            <i class="fab fa-windows"></i>
+                                        <%}
+                                    }%>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>            
+                    </a>
                 <%}%>
             </div>
 
@@ -208,41 +194,34 @@
             </header>
             <div class="games flex">
                 <% for(game of actionGames){%> 
-                    <div class="game">
-                        <h4 class="game-title"><%=game.name%></h3>
-                        <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
-                        <div class="game-description">
-                            <!-- fix the issue with the description in a javascript file-->
-                            <%
-                            let description =  game.description.slice(0,game.description.indexOf("</p>"));
-                              if(description.length > 150){
-                                  description = game.description.slice(0,popularGames[0].description.indexOf(" ", 150))+"...";
-                              }
-                            %>
-                            <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                            <%-description%><a href="/games/<%=game.id%>" class="hero-more"> Read More</a>
-
-                            <div class="platforms">
-                                <span><strong>Platform(s):</strong></span>
-                                <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
-                                let playstation = true; 
-                                %>
-                                <%for(platforms of game.platform){%>
-                                    <!-- insert image associated with the specific platform-->
-                                    <%if(platforms == "Xbox One"){%>
-                                        <i class="fab fa-xbox"></i>
-                                    <%}%>
-                                    <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
-                                        <%playstation = false;%>
-                                        <i class="fab fa-playstation"></i>
-                                    <%}%>
-                                    <%if(platforms == "PC"){%>
-                                        <i class="fab fa-windows"></i>
-                                    <%}
-                                }%>
+                    <a href="/games/<%=game.id%>">
+                        <div class="game">
+                            <h4 class="game-title"><%=game.name%></h3>
+                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
+                            <div class="game-description">
+                                <!-- fix the issue with the description in a javascript file-->
+                                <div class="platforms">
+                                    <span><strong>Platform(s):</strong></span>
+                                    <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                                    let playstation = true; 
+                                    %>
+                                    <%for(platforms of game.platform){%>
+                                        <!-- insert image associated with the specific platform-->
+                                        <%if(platforms == "Xbox One"){%>
+                                            <i class="fab fa-xbox"></i>
+                                        <%}%>
+                                        <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                            <%playstation = false;%>
+                                            <i class="fab fa-playstation"></i>
+                                        <%}%>
+                                        <%if(platforms == "PC"){%>
+                                            <i class="fab fa-windows"></i>
+                                        <%}
+                                    }%>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>            
+                    </a>
                 <%}%>
             </div>
 
@@ -258,41 +237,34 @@
             </header>
             <div class="games flex">
                 <% for(game of battleRoyalGames){%> 
-                    <div class="game">
-                        <h4 class="game-title"><%=game.name%></h3>
-                        <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
-                        <div class="game-description">
-                            <!-- fix the issue with the description in a javascript file-->
-                            <%
-                            let description =  game.description.slice(0,game.description.indexOf("</p>"));
-                              if(description.length > 150){
-                                  description = game.description.slice(0,popularGames[0].description.indexOf(" ", 150))+"...";
-                              }
-                            %>
-                            <!-- change the style of the "read more" to blue not underlined unless hovered over-->
-                            <%-description%><a href="/games/<%=game.id%>" class="hero-more"> Read More</a>
-
-                            <div class="platforms">
-                                <span><strong>Platform(s):</strong></span>
-                                <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
-                                let playstation = true; 
-                                %>
-                                <%for(platforms of game.platform){%>
-                                    <!-- insert image associated with the specific platform-->
-                                    <%if(platforms == "Xbox One"){%>
-                                        <i class="fab fa-xbox"></i>
-                                    <%}%>
-                                    <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
-                                        <%playstation = false;%>
-                                        <i class="fab fa-playstation"></i>
-                                    <%}%>
-                                    <%if(platforms == "PC"){%>
-                                        <i class="fab fa-windows"></i>
-                                    <%}
-                                }%>
+                    <a href="/games/<%=game.id%>">
+                        <div class="game">
+                            <h4 class="game-title"><%=game.name%></h3>
+                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
+                            <div class="game-description">
+                                <!-- fix the issue with the description in a javascript file-->
+                                <div class="platforms">
+                                    <span><strong>Platform(s):</strong></span>
+                                    <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                                    let playstation = true; 
+                                    %>
+                                    <%for(platforms of game.platform){%>
+                                        <!-- insert image associated with the specific platform-->
+                                        <%if(platforms == "Xbox One"){%>
+                                            <i class="fab fa-xbox"></i>
+                                        <%}%>
+                                        <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                            <%playstation = false;%>
+                                            <i class="fab fa-playstation"></i>
+                                        <%}%>
+                                        <%if(platforms == "PC"){%>
+                                            <i class="fab fa-windows"></i>
+                                        <%}
+                                    }%>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>            
+                    </a>
                 <%}%>
             </div>
 
@@ -305,6 +277,6 @@
     </main>
 
     <!--It's in the footer ejs-->
-    <!--<script src="script.js" defer></script>-->
+    <script src="/js/script.js" async></script>
 </body>
-<script src="/script.js" async></script>
+
