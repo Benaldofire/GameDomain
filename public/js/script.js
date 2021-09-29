@@ -58,15 +58,16 @@ async function featuredImg(){
         slideTimer = setInterval(next, 5000);
     }
 
+    //go to previous image when clicked
     function prev(){
         currentSlide--;
         if(currentSlide < 0){
             currentSlide = games.length - 1;
         }
         img.src = games[currentSlide].background_img;
-        desc.textContent = games[currentSlide].description;
         title.textContent = games[currentSlide].name;
-        rating.textContent = games[currentSlide].rating;
+        
+        //rating.textContent = games[currentSlide].rating;
         //loop needed for platforms and genres
         let platformsTxt = "";
         let genresTxt = "";
@@ -76,6 +77,7 @@ async function featuredImg(){
         for(platform of games[currentSlide].platform){
             platformsTxt += " "+platform;
         }
+        
         platforms.textContent = platformsTxt;
         genres.textContent = genresTxt;
 

@@ -170,7 +170,7 @@ a{
 #next{
     padding: 1em;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: white;
     user-select: none;
 }
@@ -400,17 +400,22 @@ footer a{
 .footer-social{
     display: flex;
     list-style: none;
-    padding: 0em;
+    padding-top: 1em;
     justify-content: center;
 }
 
 .social-link{
-    padding: 4em;
+    padding: 1em;
 }
 
-.social-icon{
-    max-width: 50px;
+.social-link > *{
+    font-size: 2em;
 }
+
+.credit{
+    padding-top: 1em;
+}
+
 
 /*------partials-----*/
 .backgroundClr{
@@ -489,11 +494,7 @@ footer a{
 
     #prev,
     #next{
-        padding: 1em;
-        font-weight: bold;
         font-size: 1.5rem;
-        color: white;
-        user-select: none;
     }
 
     
