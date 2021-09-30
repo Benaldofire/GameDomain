@@ -1,26 +1,18 @@
 
-/*
------------ISSUES FIX ASAP--------------------
-when you click on the preview below, it doesnt update the rating
-when you click the previous button, it doesnt update the preview selector
-
-*/
-//getFeatured();
 //Slide show
 async function featuredImg(){
     //get the data from the server
     let response = await fetch('/popular');
     let games = await response.json();
-    console.log(games);
+
     //change the image in the featured container.
     let currentSlide = 0;
     let img = document.querySelector("#featured-img");
     let desc = document.querySelector("#featured_description");
     let title = document.querySelector("#featured_title");
-    //let platforms = document.querySelector("#featured_platforms");
-    let rating = document.querySelector("#featured_rating");
-    //let genres = document.querySelector("#featured_genres");
-    let btnLink = document.querySelector(".featured-btn")
+    let platforms_container = document.querySelector(".platform-list");
+    let btnLink = document.querySelector(".featured-btn");
+
     function next(){
         currentSlide++;
         //if its end of the list then return to 0 upon press
@@ -34,17 +26,27 @@ async function featuredImg(){
         title.textContent = games[currentSlide].name;
         //rating.textContent = "Rating: "+games[currentSlide].rating;
         btnLink.href = `/games/${games[currentSlide].id}`;
-        //loop needed for platforms and genres
-        let platformsTxt = "Platform(s): ";
-        let genreTxt = "Genres: ";
-        for(genre of games[currentSlide].genres){
-            genreTxt +=genre;
+
+        //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+        let playstation = true; 
+        //reset the innerhtml for the platforms for each game.
+        platforms_container.innerHTML = "";
+        for(platforms of games[currentSlide].platform){
+            //insert image associated with the specific platform
+            if(platforms == "Xbox One"){
+                platforms_container.innerHTML += '<i class="fab fa-xbox"></i>';
+            }
+            if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){
+                playstation = false;
+                platforms_container.innerHTML += '<i class="fab fa-playstation"></i>';
+            }
+            if(platforms == "PC"){
+                platforms_container.innerHTML +='<i class="fab fa-windows"></i>';
+            }
+            if(platforms == "Nintendo"){
+                platforms_container.innerHTML +=platforms;
+            }
         }
-        for(platform of games[currentSlide].platform){
-            platformsTxt += platform;
-        }
-        //platforms.textContent = platformsTxt;
-        //genres.textContent = genreTxt;
 
         //remove active status on previous thumbnails
         let column_imgs = document.querySelectorAll(".column");
@@ -66,21 +68,38 @@ async function featuredImg(){
         }
         img.src = games[currentSlide].background_img;
         title.textContent = games[currentSlide].name;
-        
-        //rating.textContent = games[currentSlide].rating;
-        //loop needed for platforms and genres
-        let platformsTxt = "";
-        let genresTxt = "";
-        for(genre of games[currentSlide].genres){
-            genresTxt +=" "+genre;
-        }
-        for(platform of games[currentSlide].platform){
-            platformsTxt += " "+platform;
-        }
-        
-        platforms.textContent = platformsTxt;
-        genres.textContent = genresTxt;
+        btnLink.href = `/games/${games[currentSlide].id}`;
 
+        //loop needed for platforms and genres
+        //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+        let playstation = true; 
+        //reset the innerhtml for the platforms for each game.
+        platforms_container.innerHTML = "";
+        for(platforms of games[currentSlide].platform){
+            //insert image associated with the specific platform
+            if(platforms == "Xbox One"){
+                platforms_container.innerHTML += '<i class="fab fa-xbox"></i>';
+            }
+            if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){
+                playstation = false;
+                platforms_container.innerHTML += '<i class="fab fa-playstation"></i>';
+            }
+            if(platforms == "PC"){
+                platforms_container.innerHTML +='<i class="fab fa-windows"></i>';
+            }
+            if(platforms == "Nintendo"){
+                platforms_container.innerHTML +=platforms;
+            }
+        }
+        
+        //remove active status on previous thumbnails
+        let column_imgs = document.querySelectorAll(".column");
+        for(column of column_imgs){
+            column.classList.remove("active");
+        }
+
+        //change set current slide to active
+        column_imgs[currentSlide].classList.add("active");
         clearInterval(slideTimer);
         slideTimer = setInterval(next, 5000);
     }

@@ -32,23 +32,26 @@
                         
                         <div class="platforms">
                             <span>Platforms:</span>
-                            <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
-                            let playstation = true; 
-                            %>
-                            <%for(platforms of popularGames[0].platform){%>
-                                <!-- insert image associated with the specific platform-->
-                                <%if(platforms == "Xbox One"){%>
-                                    <i class="fab fa-xbox"></i>
-                                <%}%>
-                                <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
-                                    <%playstation = false;%>
-                                    <i class="fab fa-playstation"></i>
-                                <%}%>
-                                <%if(platforms == "PC"){%>
-                                    <i class="fab fa-windows"></i>
-                                <%}
-                            }%>
+                            <span class="platform-list">
+                                <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                                let playstation = true; 
+                                %>
+                                <%for(platforms of popularGames[0].platform){%>
+                                    <!-- insert image associated with the specific platform-->
+                                    <%if(platforms == "Xbox One"){%>
+                                        <i class="fab fa-xbox"></i>
+                                    <%}%>
+                                    <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                        <%playstation = false;%>
+                                        <i class="fab fa-playstation"></i>
+                                    <%}%>
+                                    <%if(platforms == "PC"){%>
+                                        <i class="fab fa-windows"></i>
+                                    <%}
+                                }%>
+                            </span>
                         </div>
+                        
                         <a class="btn-small btn-accent featured-btn" href="/games/<%=popularGames[0].id%>">Visit Page</a>
                     </div>
                     <!-- Next and previous buttons -->
