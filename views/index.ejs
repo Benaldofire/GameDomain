@@ -5,54 +5,15 @@
             <h2 class="section-title top-left">Featured</h2>
             <!-- main full width images-->
                 <div class="featured-main">
-                    <img src=<%=popularGames[0].background_img%> alt=<%=popularGames[0].name%> id="featured-img">
+                    <img src="" id="featured-img">
                     <div class="text-block">
-                        <h4 id="featured_title"><%=popularGames[0].name%></h4>
-                        <!-- 
-                            <div id = "featured_description">
-                            fix the issue with the description in a javascript file
-                            <%
-                            let description =  popularGames[0].description.slice(0,popularGames[0].description.indexOf("</p>"));
-                              if(description.length > 150){
-                                  description = popularGames[0].description.slice(0,popularGames[0].description.indexOf(" ", 150))+"...";
-                              }
-                            %>
-                            change the style of the "read more" to blue not underlined unless hovered over
-                            <%-description%><a href="/games/<%=popularGames[0].id%>" class="hero-more"> Read More</a>
-                            </div>
-                            <div id="featured_rating">
-                                <% let rating = popularGames[0].rating;
-                                if(rating == '' || rating ==null){
-                                    rating = "N/A";
-                                }%>
-                                <span><strong>Rating:</strong> <%=rating%> </span>
-                            </div>
-
-                        -->
-                        
+                        <h4 id="featured_title"></h4>
                         <div class="platforms">
                             <span>Platforms:</span>
-                            <span class="platform-list">
-                                <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
-                                let playstation = true; 
-                                %>
-                                <%for(platforms of popularGames[0].platform){%>
-                                    <!-- insert image associated with the specific platform-->
-                                    <%if(platforms == "Xbox One"){%>
-                                        <i class="fab fa-xbox"></i>
-                                    <%}%>
-                                    <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
-                                        <%playstation = false;%>
-                                        <i class="fab fa-playstation"></i>
-                                    <%}%>
-                                    <%if(platforms == "PC"){%>
-                                        <i class="fab fa-windows"></i>
-                                    <%}
-                                }%>
-                            </span>
+                            <span class="platform-list"></span>
                         </div>
                         
-                        <a class="btn-small btn-accent featured-btn" href="/games/<%=popularGames[0].id%>">Visit Page</a>
+                        <a class="btn-small btn-accent featured-btn" href="">Visit Page</a>
                     </div>
                     <!-- Next and previous buttons -->
                     <a id="prev">❮</a>
@@ -280,6 +241,6 @@
     </main>
 
     <!--It's in the footer ejs-->
-    <script src="/js/script.js" async></script>
+    <script src="/js/featured.js" async></script>
 </body>
 

@@ -1,4 +1,5 @@
-
+//Mobile navigation menu.
+//Using Jquery. Exapands the menu when clicked, by adding/removing the class modifications to it.
 $(document).ready(()=>{
     console.log("Loaded")
     //practice with JQuery
