@@ -1,4 +1,4 @@
-# GameDomain
+# GameDomain: Developed version of the initial-Game Domain program.
 Website where people can find new upcoming games and discover games from different platforms. Full-Stack website, using MVC.
 
 Status: Work in Progress
