@@ -9,13 +9,18 @@ const carousel = () => {
     console.log(slides);
 
     const slideWidth = slides[0].getBoundingClientRect().width;
+    console.log("slide Width: "+slideWidth)
+    containerWidth = track.getBoundingClientRect().width;
+    console.log("container Width: "+containerWidth)
     let currentSlide = 0;
     //do it based on the number of images that can fit in the current container width +1. But if the increment is more than the total number of images, then only increment by the remaining. 
 
     //When I click right, move slides to the right
     nextButton.addEventListener("click",()=>{
-        containerWidth = track.getBoundingClientRect().width;
+        //totalslides - n slides. 
         let increment = Math.floor(containerWidth/slideWidth);
+        
+        //if the increment amount is more than the container then we only want to increment it by the difference.
         console.log("increment by: "+increment)
         //increment the current slide pane, upon each click
         currentSlide = currentSlide+increment;
