@@ -8,29 +8,23 @@ const carousel = () => {
 
     console.log(slides);
 
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    console.log("slide Width: "+slideWidth)
-    containerWidth = track.getBoundingClientRect().width;
-    console.log("container Width: "+containerWidth)
+    const slideWidth = slides[0].getBoundingClientRect().width + 32;
+    console.log(slideWidth);
+    const slideTotal = track.childElementCount;
+    const containerWidth = track.getBoundingClientRect().width;
+    const slidesVisible = Math.floor(containerWidth/slideWidth);
     let currentSlide = 0;
-    //do it based on the number of images that can fit in the current container width +1. But if the increment is more than the total number of images, then only increment by the remaining. 
 
     //When I click right, move slides to the right
     nextButton.addEventListener("click",()=>{
-        //totalslides - n slides. 
-        let increment = Math.floor(containerWidth/slideWidth);
-        
-        //if the increment amount is more than the container then we only want to increment it by the difference.
-        console.log("increment by: "+increment)
         //increment the current slide pane, upon each click
-        currentSlide = currentSlide+increment;
-        console.log("current Slide: "+currentSlide)
-        //reset the currentSlide when we get to the end
-        if(currentSlide >= track.childElementCount){
+        currentSlide++;
+
+        //reset the currentSlide when we get to the last image
+        if(slideTotal - (slidesVisible + currentSlide) < 0){
             currentSlide = 0;
         }
 
-        //we are going to keep our pointer on one of the slides and always transition to that slide. till we get to the end.
         let moveWidth = slideWidth*currentSlide;
         track.style.transform = "translateX(-"+(moveWidth)+"px)";
     });
@@ -38,20 +32,12 @@ const carousel = () => {
 
     //When I click left, move slides to the left
     prevButton.addEventListener("click",()=>{
-        containerWidth = track.getBoundingClientRect().width;
-        let currentSlideDecre = Math.floor(containerWidth/slideWidth);
+        //decrement the current slide pane, upon each click
+        currentSlide--;
         
-        if(currentSlide == 0){
-            currentSlide = track.childElementCount - currentSlideDecre;
+        if(currentSlide < 0){
+            currentSlide = track.childElementCount - slidesVisible;
         }
-        else if(currentSlide >= currentSlideDecre){
-            currentSlide = currentSlide - currentSlideDecre;
-        }
-        else{
-            currentSlide = 0;
-        }
-        console.log(currentSlide);
-        
         
         let moveWidth = slideWidth*currentSlide;
         track.style.transform = "translateX(-"+(moveWidth)+"px)";

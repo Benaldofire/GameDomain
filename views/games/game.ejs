@@ -45,7 +45,6 @@
 
                   <div class="sub-container">
                     <div class="hero-platforms">
-                        <span>Platforms:</span>
                         <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
                         let playstation = true; 
                         %>
@@ -89,26 +88,31 @@
       </div>
 
       <section id="details-container">
-          <div id="screenshots-container">
-              <h2>Screenshots</h2>
-              <div class="screenshots">
-                <div class="carousel">
-                    <button class="carousel__button carousel__button--prev"> < </button>
-                    <div class="carousel__track-container">
-                        <!--Everything in the carousel__track will be done with JS
-                        we will have a link in there so that we can click on it
-                        -->
-                        <ul class="carousel__track">
-                            <%for(screenshot of game.screenshots){%>
-                                <li class="carousel__slide">
-                                    <img class="carousel__image" src="<%=screenshot%>" alt="<%=game.name%> image">
-                                </li>
-                            <%}%>
-                        </ul>
+            <div id="screenshots-container">
+                <div class="game-list-heading-container">
+                    <h2 class="game-list-title">Screenshots</h2>
+                    <div class="arrw">
+                        <i class="fas fa-chevron-left arrow carousel__button--prev"></i>
+                        <i class="fas fa-chevron-right arrow carousel__button--next"></i>
                     </div>
-                    <button class="carousel__button carousel__button--next"> > </button>
+                </div> 
+                <div class="screenshots">
+                    <div class="carousel">
+                        <div class="carousel__track-container">
+                            <!--Everything in the carousel__track will be done with JS
+                            we will have a link in there so that we can click on it
+                            -->
+                            <ul class="carousel__track">
+                                <%for(screenshot of game.screenshots){%>
+                                    <li class="carousel__slide">
+                                        <img class="carousel__image" src="<%=screenshot%>" alt="<%=game.name%> image">
+                                    </li>
+                                <%}%>
+                            </ul>
+                        </div>
+                        
+                    </div>
                 </div>
-              </div>
             </div>
           
           <div id="about">
@@ -170,13 +174,9 @@
   
                 
             </div>  
-            <!--need to hide system requirements for non windows games
-                //if(game.platform.includes("PC")){
-                    
-                    //document.querySelector("#system-requirements").style.display = "none"
-                }
-            -->
-            <%if(game.platform.includes("PC")){%>
+
+            <!-- Some games do not have system requirements so need to be hidden-->
+            <%if(!game.minimumRequirement == undefined){%>
             <div id="system-requirements">
                 <h2>System requirements</h2>
                 <div class="sys-req container">

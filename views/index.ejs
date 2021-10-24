@@ -8,10 +8,7 @@
                     <img src="" id="featured-img">
                     <div class="text-block">
                         <h4 id="featured_title"></h4>
-                        <div class="platforms">
-                            <span>Platforms:</span>
-                            <span class="platform-list"></span>
-                        </div>
+                        <div class="platform-list"></div>
                         
                         <a class="btn-small btn-accent featured-btn" href="">Visit Page</a>
                     </div>
@@ -74,12 +71,9 @@
                 <% for(game of fpsGames){%> 
                     <a href="/games/<%=game.id%>">
                         <div class="game">
-                            <h4 class="game-title"><%=game.name%></h3>
-                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                             <div class="game-description">
-                                <!-- fix the issue with the description in a javascript file-->
+                                <h4 class="game-title"><%=game.name%></h3>
                                 <div class="platforms">
-                                    <span><strong>Platform(s):</strong></span>
                                     <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
                                     let playstation = true; 
                                     %>
@@ -98,6 +92,7 @@
                                     }%>
                                 </div>
                             </div>
+                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                         </div>            
                     </a>
                 <%}%>
@@ -117,12 +112,9 @@
                 <% for(game of rpgGames){%> 
                     <a href="/games/<%=game.id%>">
                         <div class="game">
-                            <h4 class="game-title"><%=game.name%></h3>
-                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                             <div class="game-description">
-                                <!-- fix the issue with the description in a javascript file-->
+                                <h4 class="game-title"><%=game.name%></h3>
                                 <div class="platforms">
-                                    <span><strong>Platform(s):</strong></span>
                                     <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
                                     let playstation = true; 
                                     %>
@@ -141,6 +133,7 @@
                                     }%>
                                 </div>
                             </div>
+                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                         </div>            
                     </a>
                 <%}%>
@@ -160,12 +153,9 @@
                 <% for(game of actionGames){%> 
                     <a href="/games/<%=game.id%>">
                         <div class="game">
-                            <h4 class="game-title"><%=game.name%></h3>
-                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                             <div class="game-description">
-                                <!-- fix the issue with the description in a javascript file-->
+                                <h4 class="game-title"><%=game.name%></h3>
                                 <div class="platforms">
-                                    <span><strong>Platform(s):</strong></span>
                                     <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
                                     let playstation = true; 
                                     %>
@@ -184,6 +174,7 @@
                                     }%>
                                 </div>
                             </div>
+                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                         </div>            
                     </a>
                 <%}%>
@@ -203,12 +194,9 @@
                 <% for(game of battleRoyalGames){%> 
                     <a href="/games/<%=game.id%>">
                         <div class="game">
-                            <h4 class="game-title"><%=game.name%></h3>
-                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                             <div class="game-description">
-                                <!-- fix the issue with the description in a javascript file-->
+                                <h4 class="game-title"><%=game.name%></h3>
                                 <div class="platforms">
-                                    <span><strong>Platform(s):</strong></span>
                                     <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
                                     let playstation = true; 
                                     %>
@@ -227,6 +215,7 @@
                                     }%>
                                 </div>
                             </div>
+                            <img src=<%=game.background_img%> alt=<%=game.name%> class="game_img">
                         </div>            
                     </a>
                 <%}%>
