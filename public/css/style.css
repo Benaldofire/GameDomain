@@ -3,8 +3,9 @@
     --clr-text: #464545;
     --clr-primary: #067E0A;
     --clr-primary-dark: #065009;
-    --clr-accent: #171717;
+    --clr-accent: black;
     --clr-accent-dark: rgba(30, 29, 31, 0.842);
+    --clr-night-mode:#0d1117;
 
     --ff-title: 'Fira Sans', sans-serif;;
     --ff-serif: 'Mukta', sans-serif;
@@ -30,6 +31,11 @@ html{
 body{
     margin: 0;
     text-align: center;
+}
+
+.night-mode.active{
+    background-color: var(--clr-night-mode);
+    color: #eee;
 }
 
 section{
@@ -96,7 +102,11 @@ a{
 /*Featured section*/
 .featured-container{
     padding: 0;
-    background-color: #e9e9e9;
+    background: #e9e9e9;
+}
+
+.featured-container.active{
+    background-color: var(--clr-night-mode);
 }
 
 .featured-main{
@@ -203,8 +213,12 @@ a{
 
 .intro{
     text-align: center;
-    padding: 1em 0;
     background: #e9e9e9;
+    padding: 1em 0;
+}
+
+.intro.active{
+    background: var(--clr-night-mode);
 }
 
 /*Categories section*/
@@ -269,6 +283,7 @@ a{
     overflow: hidden;
     margin: 1em;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+    background-color:hsla(0,0%,100%,.09);
     transform: scale(1);
     transition: transform 250ms ease-in-out;
     max-width: 380px;
@@ -317,8 +332,7 @@ a{
 }
 
 .game:hover img{
-    opacity: 0.3;
-
+    opacity: 0.8;
 }
 
 .view-more{

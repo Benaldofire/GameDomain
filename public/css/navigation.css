@@ -3,7 +3,7 @@ header{
 }
 
 .main-header{
-    background-color: #171717;
+    background-color: black;
     padding-bottom: 0;
 }
 
@@ -38,14 +38,14 @@ nav{
     padding: 0;
     width: 0;
     position: absolute;
-    z-index: 1;
+    z-index: 70;
     height: 100vh;
     top: 0;
     left: 0;
     overflow:auto;
     transition: 0.5s;
     padding-top: 2em; 
-    background-color: #171717;
+    background-color: black;
 }
 
 .bar1, .bar2, .bar3{
@@ -97,6 +97,42 @@ nav a:focus{
     background-color: var(--clr-primary);
 }
 
+/* Night mode */
+.toggle{
+    min-width: 3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 2em;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin:1em;
+}
+
+.toggle-icon{
+    color: goldenrod
+}
+
+.toggle-ball{
+    width: 1.1em;
+    height: 1.1em;
+    background-color: black;
+    position:absolute;
+    right: 2px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.toggle.active{
+    background-color: white;
+}
+
+.toggle-ball.active{
+    background-color: black;
+    transform:translateX(-1.5em);
+}
 
 /*Dropdown selector*/
 
