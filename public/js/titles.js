@@ -11,14 +11,31 @@ for(let i =0; i < gameTitles.length; i++){
 function toggleMode(){
     const toggleBall = document.querySelector('.toggle-ball');
     const items = document.querySelectorAll(
-      '.night-mode, .toggle-ball, .toggle,.featured-container,.intro'
+      '.night-mode, .toggle-ball, .toggle,.game,.featured-container,.intro,.main-container,.container,.dropdown-name,.dropdown-content,.selection,.filter_btn,.labels'
     );
   
     toggleBall.addEventListener('click', () => {
       items.forEach((item) => {
         item.classList.toggle('active');
       });
+
+    document.body.classList.toggle('dark'); //toggle the HTML body the class 'dark'
+   
+     if(document.body.classList.contains('dark')){ //when the body has the class 'dark' currently
+          localStorage.setItem('darkMode', 'enabled'); //store this data if dark mode is on
+      }else{
+          localStorage.setItem('darkMode', 'disabled'); //store this data if dark mode is off
+      }
     });
+
+  if(localStorage.getItem('darkMode') == 'enabled'){
+    document.body.classList.toggle('dark');
+    items.forEach((item) => {
+      item.classList.toggle('active');
+    });
+  }
   }
   
   toggleMode();
+
+  

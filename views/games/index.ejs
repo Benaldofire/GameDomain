@@ -13,7 +13,27 @@
         <% for(game of games){%> 
             <div class="game">
                 <a href="/games/<%=game.id%>">
-                    <h4 class="game-title"><%=game.name%></h3>
+                    <div class="game-description">
+                        <h4 class="game-title"><%=game.name%></h3>
+                        <div class="platforms">
+                            <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
+                            let playstation = true; 
+                            %>
+                            <%for(platforms of game.platform){%>
+                                <!-- insert image associated with the specific platform-->
+                                <%if(platforms == "Xbox One"){%>
+                                    <i class="fab fa-xbox"></i>
+                                <%}%>
+                                <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
+                                    <%playstation = false;%>
+                                    <i class="fab fa-playstation"></i>
+                                <%}%>
+                                <%if(platforms == "PC"){%>
+                                    <i class="fab fa-windows"></i>
+                                <%}
+                            }%>
+                        </div>
+                    </div>
                     <img src=<%=game.background_img%> alt=<%=game.name%> class="games_img_smaller">
                 </a>
                 <div class="content-container">
@@ -30,25 +50,7 @@
                             <li class="genre_list"><%=game.genres[i]%></li>
                         <%}%>
                     </div>
-                    <div class="platforms">
-                        <span><strong>Platform(s):</strong></span>
-                        <% //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
-                        let playstation = true; 
-                        %>
-                        <%for(platforms of game.platform){%>
-                            <!-- insert image associated with the specific platform-->
-                            <%if(platforms == "Xbox One"){%>
-                                <i class="fab fa-xbox"></i>
-                            <%}%>
-                            <%if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){%>
-                                <%playstation = false;%>
-                                <i class="fab fa-playstation"></i>
-                            <%}%>
-                            <%if(platforms == "PC"){%>
-                                <i class="fab fa-windows"></i>
-                            <%}
-                        }%>
-                    </div>
+                    
                     <div>
                         <% let rating = game.rating;
                         if(rating == '' || rating ==null){

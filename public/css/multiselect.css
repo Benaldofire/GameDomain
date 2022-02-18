@@ -1,3 +1,5 @@
+@import 'style.css';
+
 .filter-container{
   width: 100%;
   display: flex;
@@ -46,6 +48,15 @@
     background-color: black;
     color: white;
     justify-content: space-between;
+  }
+
+  .dropdown-name.active,
+  .dropdown.active,
+  .dropdown-content.active,
+  .selection.active,
+  .filter_btn.active,
+  .labels.active {
+    background-color: var(--clr-night-mode-background);
   }
   
   /*change the bottom side of the border radius to boxed

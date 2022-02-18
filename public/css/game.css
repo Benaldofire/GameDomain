@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+@import 'style.css';
 *{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.main_container{
+.main-container{
   display: grid;
   grid-template-columns: auto;
-  background-color: rgb(202, 202, 202);
+  background-color: rgb(202, 202, 202); 
   text-align: left;
+}
+
+.main-container.active{
+  background-color:var(--clr-night-mode);
 }
 
 .hero-container{
@@ -50,6 +55,7 @@
   font-weight:300;
   width: 100%;
   padding-right: 2em;
+  
 }
 
 .hero-description > *{
@@ -145,6 +151,12 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
   margin-top: 1em;
   padding: 1em;
+  color: black;
+}
+
+.container.active{
+  color:white;
+  background-color: #333;
 }
 
 #details-container, #reviews{

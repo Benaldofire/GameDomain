@@ -72,8 +72,14 @@ nav{
     transform: rotate(45deg) translate(-8px, -8px);
 }
 
-.open{
+.nav-content.open{
     width: 100%;
+    position:fixed;
+    justify-content: center;
+}
+
+.open_nav.open{
+    position:fixed;
 }
 
 nav li{
@@ -135,6 +141,7 @@ nav a:focus{
 }
 
 /*Dropdown selector*/
+
 
 
 
