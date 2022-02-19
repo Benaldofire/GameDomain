@@ -1,3 +1,5 @@
+@import 'style.css';
+
 header{
     padding: 0.5em 0 1em;
 }
@@ -13,6 +15,18 @@ nav{
     padding: 0.5em 1em;
     align-items: center;
     position:relative;
+    color: white;
+}
+
+.logo.second{
+    display:none;
+}
+
+.logo a{
+    color: var(--clr-primary);
+    font-size: 2.5rem;
+    padding: 0;
+    font-weight: bold;
 }
 
 .open_nav{
@@ -28,12 +42,29 @@ nav{
     color: var(--clr-primary)
 }
 
+.profile-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 200px;
+}
 
+.profile-text-container{
+    margin: 0 1em;
+    cursor: pointer;
+}
+
+.profile-picture{
+    width:33px;
+    height: 33px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
 
 .nav-content{
     display: flex;
     flex-direction: column;
-    list-style: none;
     margin: 0;
     padding: 0;
     width: 0;
@@ -46,6 +77,11 @@ nav{
     transition: 0.5s;
     padding-top: 2em; 
     background-color: black;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
 }
 
 .bar1, .bar2, .bar3{
@@ -89,7 +125,7 @@ nav li{
 nav a {
     display: inline-block;
     padding: 0.5em;
-    color: var(--clr-primary);
+    color: white;
     text-decoration: none;
     font-size: 1.25rem;
     font-weight: 500;
@@ -97,8 +133,8 @@ nav a {
     text-align: center;
 }
 
-nav a:hover,
-nav a:focus{
+.nav-bar:hover,
+.nav-bar:focus{
     color: white;
     background-color: var(--clr-primary);
 }
@@ -113,7 +149,6 @@ nav a:focus{
     align-items: center;
     justify-content: space-around;
     position: relative;
-    margin:1em;
 }
 
 .toggle-icon{
@@ -148,8 +183,9 @@ nav a:focus{
 .search-form{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
+    padding-top: 1em;
 }
 
 #searchInput{
@@ -190,9 +226,20 @@ nav a:focus{
         max-width: 85vw;
         margin: 0 auto;
     }
+    .logo.first{
+        display:none;
+    }
+
+    .logo.second{
+        display:block;
+    }
 
     .search-container{
-        width: 70%;
+        width: 50%;
+    }
+
+    .search-form{
+        padding: 0em;
     }
     
     .filter-container{
@@ -202,10 +249,22 @@ nav a:focus{
     .nav-content{
         flex-direction: row;
         height: auto;
-        width:100%;
+        width:90%;
+        justify-content: space-between;
         position: static;
         padding-top: 0px;
         box-shadow: none;
+        align-items: center;
+    }
+
+    .nav-list{
+        padding: 0;
+        width: 30%;
+        justify-content: space-between;
+    }
+
+    .search-form{
+        justify-content: flex-end;
     }
 
     .open_nav{

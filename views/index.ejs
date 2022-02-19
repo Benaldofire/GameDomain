@@ -8,9 +8,11 @@
                     <img src="" id="featured-img">
                     <div class="text-block">
                         <h4 id="featured_title"></h4>
-                        <div class="platform-list"></div>
+                        <div>
+                            <div class="platform-list"></div>
+                            <a class="btn-small btn-accent featured-btn" href="">Visit Page</a>
+                        </div>
                         
-                        <a class="btn-small btn-accent featured-btn" href="">Visit Page</a>
                     </div>
                     <!-- Next and previous buttons -->
                     <a id="prev">❮</a>
@@ -52,9 +54,9 @@
                     </a>
                 </div>
                 <div class="category">
-                    <a href="#battle-royale">
-                        <img class = "category-img" src="img/Battle Royal.jpg" alt="Battle Royale">
-                        <h4 class="category-title">Battle Royale</h4>
+                    <a href="#adventure">
+                        <img class = "category-img" src="img/Battle Royal.jpg" alt="Adventure">
+                        <h4 class="category-title">Adventure</h4>
                     </a>
                 </div>
             </div>
@@ -186,12 +188,12 @@
 
         </section>
 
-        <section class="category-1" id="battle-royale">
+        <section class="category-1" id="adventure">
             <header>
-                <h2 class="section-title text-primary"> Battle Royale</h2>
+                <h2 class="section-title text-primary"> Adventure </h2>
             </header>
             <div class="games flex">
-                <% for(game of battleRoyalGames){%> 
+                <% for(game of adventureGames){%> 
                     <a href="/games/<%=game.id%>">
                         <div class="game">
                             <div class="game-description">
@@ -222,7 +224,7 @@
             </div>
 
             <div class="view-more">
-                <a href="/platform/all/battleroyale" class="btn btn-accent">View More</a>
+                <a href="/platform/all/adventure" class="btn btn-accent">View More</a>
             </div>
 
         </section>

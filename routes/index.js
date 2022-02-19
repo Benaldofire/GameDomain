@@ -110,14 +110,14 @@ router.get('/', async (req,res)=>{
         const actionGames = await Game.find({}).where("genres").in(["Action"]).limit(4);
         const fpsGames = await Game.find({}).where("genres").in(["Shooter"]).limit(4);
         const rpgGames = await Game.find({}).where("genres").in(["RPG"]).limit(4);
-        const battleRoyalGames = await Game.find({}).limit(4);
+        const adventureGames = await Game.find({}).where("genres").in(["Adventure"]).limit(4);
         //send the data from the database to the index
         res.render("index", {
             popularGames:popularGames,
             actionGames: actionGames,
             fpsGames:fpsGames,
             rpgGames:rpgGames,
-            battleRoyalGames:battleRoyalGames
+            adventureGames:adventureGames
         });
     }
     catch (err){

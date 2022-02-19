@@ -52,23 +52,23 @@ async function featuredImg(){
         //Dont want 2 playstation logos for ps4 and ps5 so have a boolean to detect one of em
         let playstation = true; 
         //reset the innerhtml for the platforms for each game.
-        platforms_container.innerHTML = "";
-        for(platforms of games[currentSlide].platform){
-            //insert image associated with the specific platform
-            if(platforms == "Xbox One"){
-                platforms_container.innerHTML += '<i class="fab fa-xbox"></i>';
-            }
-            if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){
-                playstation = false;
-                platforms_container.innerHTML += '<i class="fab fa-playstation"></i>';
-            }
-            if(platforms == "PC"){
-                platforms_container.innerHTML +='<i class="fab fa-windows"></i>';
-            }
-            if(platforms == "Nintendo"){
-                platforms_container.innerHTML +=platforms;
-            }
-        }
+        // platforms_container.innerHTML = "";
+        // for(platforms of games[currentSlide].platform){
+        //     //insert image associated with the specific platform
+        //     if(platforms == "Xbox One"){
+        //         platforms_container.innerHTML += '<i class="fab fa-xbox"></i>';
+        //     }
+        //     if((platforms == "PlayStation 4" || platforms == "PlayStation 5") && playstation){
+        //         playstation = false;
+        //         platforms_container.innerHTML += '<i class="fab fa-playstation"></i>';
+        //     }
+        //     if(platforms == "PC"){
+        //         platforms_container.innerHTML +='<i class="fab fa-windows"></i>';
+        //     }
+        //     if(platforms == "Nintendo"){
+        //         platforms_container.innerHTML +=platforms;
+        //     }
+        // }
 
         //remove active status on previous thumbnails
         let column_imgs = document.querySelectorAll(".column");

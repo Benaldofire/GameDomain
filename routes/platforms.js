@@ -43,7 +43,7 @@ router.get('/:platform', async (req,res)=>{
             action:false,
             rpg:false,
             shooter:false,
-            battleroyale:false,
+            adventure:false,
             sort:"",
             sortby:""
         });
@@ -77,15 +77,15 @@ router.get('/games/filter', async (req,res)=>{
         if(req.query.rpg){
             genres.push("RPG");
         }
-        if(req.query.battleroyale){
-            genres.push("battleroyale");
+        if(req.query.adventure){
+            genres.push("Adventure");
         }
         if(req.query.shooter){
             genres.push("Shooter");
         }
 
         if(genres.length == 0){
-            genres = ["Action","RPG","battleroyale","Shooter"];
+            genres = ["Action","RPG","Adventure","Shooter"];
         }
 
         let query = Game.find({});
@@ -109,7 +109,7 @@ router.get('/games/filter', async (req,res)=>{
             action:req.query.action,
             rpg:req.query.rpg,
             shooter:req.query.shooter,
-            battleroyale:req.query.battleroyale,
+            adventure:req.query.adventure,
             sort:sort,
             sortby:req.query.sortby
         });
@@ -127,7 +127,7 @@ router.get('/all/:genre', async (req, res)=>{
     let action = false;
     let rpg = false;
     let shooter = false;
-    let battleroyale = false;
+    let adventure = false;
 
     try{
         if(req.params.genre =="action"){
@@ -138,9 +138,9 @@ router.get('/all/:genre', async (req, res)=>{
             genres.push("RPG");
             rpg = true;
         }
-        if(req.params.genre == "battleroyale"){
-            genres.push("battleroyale");
-            battleroyale = true;
+        if(req.params.genre == "adventure"){
+            genres.push("Adventure");
+            adventure = true;
         }
         if(req.params.genre == "shooter"){
             genres.push("Shooter");
@@ -154,7 +154,7 @@ router.get('/all/:genre', async (req, res)=>{
             action:action,
             rpg:rpg,
             shooter:shooter,
-            battleroyale:battleroyale,
+            adventure:adventure,
             sort:"Name",
             sortby:"asc"
         });
