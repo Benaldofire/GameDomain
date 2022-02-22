@@ -5,31 +5,38 @@ const carousel = () => {
   const nextButton = document.querySelector('.carousel__button--next');
   const prevButton = document.querySelector('.carousel__button--prev');
 
-  console.log(slides);
-
-  const slideWidth = slides[0].getBoundingClientRect().width + 32;
-  console.log(slideWidth);
-  const slideTotal = track.childElementCount;
-  const containerWidth = track.getBoundingClientRect().width;
-  const slidesVisible = Math.floor(containerWidth / slideWidth);
   let currentSlide = 0;
 
-  //When I click right, move slides to the right
+  //variables set but not initialized.
+  let slideTotal, containerWidth, slideWidth, slidesVisible;
+
+  //update variables on click. To refresh values on screen size change.
+  function updateWidths(){
+    slideTotal = track.childElementCount;
+    containerWidth = track.getBoundingClientRect().width;
+    slideWidth = slides[0].getBoundingClientRect().width + 32;
+    slidesVisible = Math.floor(containerWidth / slideWidth);
+  }
+  
+  //When I click Next Button, move slides to the right
   nextButton.addEventListener('click', () => {
+    updateWidths();
     //increment the current slide pane, upon each click
     currentSlide++;
 
+    console.log(containerWidth);
     //reset the currentSlide when we get to the last image
     if (slideTotal - (slidesVisible + currentSlide) < 0) {
       currentSlide = 0;
     }
 
     let moveWidth = slideWidth * currentSlide;
-    track.style.transform = 'translateX(-' + moveWidth + 'px)';
+    track.style.transform = 'translateX(-' + (slideWidth * currentSlide) + 'px)';
   });
 
   //When I click left, move slides to the left
   prevButton.addEventListener('click', () => {
+    updateWidths();
     //decrement the current slide pane, upon each click
     currentSlide--;
 
@@ -37,8 +44,7 @@ const carousel = () => {
       currentSlide = track.childElementCount - slidesVisible;
     }
 
-    let moveWidth = slideWidth * currentSlide;
-    track.style.transform = 'translateX(-' + moveWidth + 'px)';
+    track.style.transform = 'translateX(-' + (slideWidth * currentSlide) + 'px)';
   });
 };
 
