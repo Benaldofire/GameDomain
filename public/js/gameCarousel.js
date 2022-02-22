@@ -11,7 +11,7 @@ const carousel = () => {
   let slideTotal, containerWidth, slideWidth, slidesVisible;
 
   //update variables on click. To refresh values on screen size change.
-  function updateWidths(){
+  function updateWidths() {
     slideTotal = track.childElementCount;
     containerWidth = track.getBoundingClientRect().width;
     slideWidth = slides[0].getBoundingClientRect().width + 32;
@@ -49,6 +49,54 @@ const carousel = () => {
 };
 
 carousel();
+
+
+/*expanding the slides upon click*/
+
+const modalWindow = document.querySelector('#modal-window-container');
+const modalImg = document.querySelector('#modal-img');
+const images = document.querySelectorAll('.carousel__image');
+let expandImg = false;
+
+images.forEach(image => {
+  image.addEventListener('click', (e) => {
+    console.log(expandImg);
+    //console.log(e.target.src);
+    modalImg.src = e.target.src;
+    modalWindow.style.display = "block";
+    expandImg = true;
+  });
+});
+
+document.addEventListener('click', () => {
+  console.log(expandImg);
+  if (expandImg) {
+    modalWindow.style.display = "none";
+    expandImg = false;
+  }
+  
+}, true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //trailer not ready yet. Work with youtube API
 document.querySelector('.play-btn').addEventListener('click', () => {

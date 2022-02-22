@@ -47,3 +47,7 @@ document.querySelector('.profile-text-container').addEventListener('click', () =
 document.querySelector('.profile-picture').addEventListener('click', () => {
   alert('Sorry, Work in progress. Profiles Not Available Yet');
 });
+
+document.querySelector('.profile-picture').addEventListener('click', () => {
+  alert('Sorry, Work in progress. Profiles Not Available Yet');
+});
